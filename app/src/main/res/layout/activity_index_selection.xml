@@ -12,27 +12,15 @@
         android:background="?attr/colorPrimary"
         android:elevation="8dp"
         android:paddingTop="12dp"
-        android:paddingBottom="12dp" >
+        android:paddingBottom="12dp"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:navigationContentDescription="Indietro">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="bottom">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Benvenuto, "
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="24sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:includeFontPadding="false"
-                android:minHeight="0dp"
-                android:text="Guest"
-                android:textColor="?attr/colorOnPrimary"
-                android:textSize="16sp" />
         </LinearLayout>
         <ImageView
             android:id="@+id/accountCircle"
@@ -52,22 +40,16 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:contentDescription="Contenuto principale"
-        android:scrollbars="none">
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+        android:scrollbarSize="6dp"
+        android:scrollbarStyle="outsideOverlay">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="STRUMENTI PRINCIPALI"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:textColor="?attr/colorSecondary"
-                android:layout_marginBottom="16dp"/>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -82,36 +64,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
-
-                    <ImageView
-                        android:id="@+id/baselineCalculate"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:background="?attr/colorSecondaryContainer"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_baseline_calculate"
-                        app:tint="?attr/colorSecondary"/>
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Calcolatore Indici"
-                        android:textSize="19sp"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnSurface"
                         android:layout_marginTop="18dp"
-                        android:layout_marginBottom="8dp"/>
+                        android:layout_marginBottom="8dp"
+                        android:text="Calcolatore PASI"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="19sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Calcola rapidamente indici clinici. Inserisci i valori e ottieni il risultato istantaneo."
+                        android:text=" indice medico utilizzato per valutare la gravita' della psoriasi e misurare l'efficacia dei trattamenti nel tempo"
                         android:textSize="13sp"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:layout_marginBottom="22dp"/>
                     <Button
-                        android:id="@+id/btnCalcola"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Inizia calcolo"
@@ -132,20 +104,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
-                    <ImageView
-                        android:id="@+id/monitoringIcon"
-                        android:layout_width="52dp"
-                        android:layout_height="52dp"
-                        android:background="?attr/colorTertiaryContainer"
-                        android:padding="12dp"
-                        android:src="@drawable/ic_monitoring"
-                        app:tint="?attr/colorTertiary"/>
+                    android:padding="20dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Statistiche Paziente"
+                        android:text="Calcolatore EASI"
                         android:textSize="19sp"
                         android:textStyle="bold"
                         android:textColor="?attr/colorOnPrimary"
@@ -155,18 +119,100 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Visualizza lo storico degli indici per ogni paziente, con grafici di andamento nel tempo."
+                        android:text="Score per dermatite atopica basato su estensione e gravità delle lesioni"
                         android:textSize="13sp"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:layout_marginBottom="22dp"/>
                     <Button android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cerca paziente"
+                        android:text="Inizia calcolo"
                         android:textColor="?attr/colorOnTertiary"
                         android:backgroundTint="?attr/colorTertiary"
                         app:cornerRadius="100dp"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:strokeColor="?attr/colorOutline"
+                app:strokeWidth="1.5dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calcolatore BMI"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnSurface"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Indice di massa corporea"
+                        android:textSize="13sp"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="22dp"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inizia calcolo"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:backgroundTint="?attr/colorSecondary"
+                        app:cornerRadius="100dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="?attr/colorPrimary"
+                app:cardElevation="4dp" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calcolatore BSA"
+                        android:textSize="19sp"
+                        android:textStyle="bold"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Percentuale di superficie corporea coinvolta da una patologia"
+                        android:textSize="13sp"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_marginBottom="22dp"/>
+                    <Button android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inizia calcolo"
+                        android:textColor="?attr/colorOnTertiary"
+                        android:backgroundTint="?attr/colorTertiary"
+                        app:cornerRadius="100dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
     </ScrollView>
 
@@ -196,12 +242,12 @@
                 android:layout_marginBottom="4dp"
                 app:tint="?attr/colorPrimary" />
             <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home"
-            android:textSize="11sp"
-            android:textStyle="bold"
-            android:textColor="?attr/colorPrimary" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textColor="?attr/colorPrimary" />
         </LinearLayout>
 
         <LinearLayout
