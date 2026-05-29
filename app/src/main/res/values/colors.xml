@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="light_background">#FFF0F4F8</color>
+    <color name="light_surface">#FFFFFFFF</color>
+    <color name="light_primary">#FF1A3C5E</color>
+    <color name="light_primary_dark">#FF1f5080</color>
+    <color name="light_accent_blue">#FF3D91D6</color>
+    <color name="light_accent_blue_10">#1A3D91D6</color>
+    <color name="light_accent_blue_20">#333D91D6</color>
+    <color name="light_accent_green">#FF2ECC8E</color>
+    <color name="light_title">#FF1A2535</color>
+    <color name="light_text">#FF6B7E95</color>
+    <color name="light_on_primary">#FFFFFFFF</color>
+    <color name="light_on_primary_muted">#A6FFFFFF</color>
+    <color name="light_white_overlay_12">#1FFFFFFF</color>
+    <color name="light_white_overlay_60">#99FFFFFF</color>
+
+    <!-- Dark Theme -->
+    <color name="dark_background">#FF1A1C1E</color>
+    <color name="dark_surface">#FF1A1C1E</color>
+    <color name="dark_primary">#FFD0E4FF</color>
+    <color name="dark_on_primary">#003355</color>
+    <color name="dark_secondary">#FFBAC8DB</color>
+    <color name="dark_tertiary">#FFD6BEE4</color>
+    <color name="dark_outline">#FF8C9199</color>
+    <color name="dark_accent_blue">#FF3D91D6</color>
+    <color name="dark_accent_green">#FF2ECC8E</color>
+    <color name="dark_title">#FFE2E2E6</color>
+    <color name="dark_text">#FFC4C6CF</color>
+    <color name="dark_on_primary_muted">#80003355</color>
+    <color name="dark_white_overlay_12">#1FFFFFFF</color>
+    <color name="dark_white_overlay_60">#99FFFFFF</color>
 </resources>
