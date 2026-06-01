@@ -19,7 +19,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        gradlePluginPortal() // ← AGGIUNGI QUESTA RIGA
+        gradlePluginPortal()
     }
 }
 

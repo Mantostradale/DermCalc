@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.DermCalc" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Theme.DermCalc" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/light_background</item>
         <item name="colorPrimary">@color/light_primary</item>
         <item name="colorOnPrimary">@color/light_on_primary</item>
@@ -9,6 +9,7 @@
         <item name="colorTertiary">@color/light_accent_green</item>
         <item name="colorOnTertiary">@color/light_on_primary</item>
         <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnSurface">@color/light_title</item>
         <item name="colorOnSurfaceVariant">@color/light_text</item>
         <item name="colorSecondaryContainer">@color/light_accent_blue_10</item>
         <item name="colorOutline">@color/light_accent_blue_20</item>
