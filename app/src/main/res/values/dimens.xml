@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="toolbar_padding_vertical">12dp</dimen>
+    <dimen name="toolbar_account_icon_size">60dp</dimen>
+    <dimen name="toolbar_account_icon_margin_end">20dp</dimen>
+    <dimen name="toolbar_account_icon_padding">8dp</dimen>
+
+    <dimen name="text_size_welcome">24sp</dimen>
+    <dimen name="text_size_username">16sp</dimen>
+    <dimen name="text_size_section_label">11sp</dimen>
+    <dimen name="text_size_card_title">19sp</dimen>
+    <dimen name="text_size_card_body">13sp</dimen>
+    <dimen name="text_size_nav_label">11sp</dimen>
+
+    <dimen name="screen_padding">20dp</dimen>
+    <dimen name="card_padding">24dp</dimen>
+    <dimen name="card_padding_small">20dp</dimen>
+    <dimen name="nav_padding_horizontal">16dp</dimen>
+
+    <dimen name="section_label_margin_bottom">16dp</dimen>
+    <dimen name="card_margin_bottom">18dp</dimen>
+    <dimen name="card_margin_bottom_secondary">16dp</dimen>
+    <dimen name="card_icon_margin_bottom">4dp</dimen>
+    <dimen name="card_title_margin_top">18dp</dimen>
+    <dimen name="card_title_margin_bottom">8dp</dimen>
+    <dimen name="card_body_margin_bottom">22dp</dimen>
+
+    <dimen name="card_corner_radius">24dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_elevation_primary">4dp</dimen>
+    <dimen name="card_stroke_width">1.5dp</dimen>
+
+    <dimen name="icon_size_card">52dp</dimen>
+    <dimen name="icon_padding_card">12dp</dimen>
+    <dimen name="icon_size_nav">24dp</dimen>
+    <dimen name="icon_margin_bottom_nav">4dp</dimen>
+
+    <dimen name="nav_bar_height">64dp</dimen>
+    <dimen name="nav_bar_elevation">16dp</dimen>
+
+    <dimen name="toolbar_elevation">8dp</dimen>
+
+    <dimen name="button_corner_radius">100dp</dimen>
+
+</resources>

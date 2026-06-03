@@ -1,3 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DermCalc</string>
+
+    <string name="nav_back_description">Indietro</string>
+    <string name="main_content_description">Contenuto principale</string>
+
+    <string name="welcome_text">"Benvenuto, "</string>
+    <string name="guest_user">Guest</string>
+
+    <string name="main_tools_title">STRUMENTI PRINCIPALI</string>
+
+    <string name="title_pasi">Calcolatore PASI</string>
+    <string name="title_easi">Calcolatore EASI</string>
+    <string name="title_bmi">Calcolatore BMI</string>
+    <string name="title_bsa">Calcolatore BSA</string>
+    <string name="title_indices">Calcolatore Indici</string>
+    <string name="title_patient_stats">Statistiche Paziente</string>
+
+    <string name="desc_pasi">indice medico utilizzato per valutare la gravità della psoriasi e misurare l\'efficacia dei trattamenti nel tempo</string>
+    <string name="desc_easi">Score per dermatite atopica basato su estensione e gravità delle lesioni</string>
+    <string name="desc_bmi">Indice di massa corporea</string>
+    <string name="desc_bsa">Percentuale di superficie corporea coinvolta da una patologia</string>
+    <string name="desc_indices">Calcola rapidamente indici clinici. Inserisci i valori e ottieni il risultato istantaneo.</string>
+    <string name="desc_patient_stats">Visualizza lo storico degli indici per ogni paziente, con grafici di andamento nel tempo.</string>
+
+    <string name="btn_start_calculation">Inizia calcolo</string>
+    <string name="btn_search_patient">Cerca paziente</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_patients">Pazienti</string>
+    <string name="nav_reports">Referti</string>
+    <string name="nav_change_theme">Cambia Tema</string>
 </resources>

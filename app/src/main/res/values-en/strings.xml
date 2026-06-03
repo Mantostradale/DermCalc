@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DermCalc</string>
+    <string name="nav_back_description">Back</string>
+    <string name="main_content_description">Main content</string>
+    <string name="welcome_text">"Welcome, "</string>
+    <string name="guest_user">Guest</string>
+    <string name="main_tools_title">MAIN TOOLS</string>
+    <string name="title_pasi">PASI Calculator</string>
+    <string name="title_easi">EASI Calculator</string>
+    <string name="title_bmi">BMI Calculator</string>
+    <string name="title_bsa">BSA Calculator</string>
+    <string name="title_indices">Index Calculator</string>
+    <string name="title_patient_stats">Patient Statistics</string>
+    <string name="desc_patient_stats">View the index history for each patient, with graphs showing trends over time.</string>
+    <string name="btn_start_calculation">Start Calculation</string>
+    <string name="btn_search_patient">Search Patient</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_patients">Patients</string>
+    <string name="nav_reports">Reports</string>
+    <string name="nav_change_theme">Change Theme</string>
+    <string name="desc_pasi">a medical index used to assess the severity of psoriasis and measure the effectiveness of treatments over time</string>
+    <string name="desc_easi">Score for atopic dermatitis based on the extent and severity of lesions</string>
+    <string name="desc_bmi">Body Mass Index</string>
+    <string name="desc_bsa">Percentage of body surface area affected by a condition</string>
+    <string name="desc_indices">Calculate clinical indices quickly. Enter the values and get the result straight away.</string>
+</resources>
