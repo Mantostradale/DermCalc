@@ -49,19 +49,21 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
 
-    // Core e UI XML (se servono componenti Material tradizionali)
+    // Core e UI XML
     implementation(libs.androidx.core.ktx)
     implementation("com.google.android.material:material:1.14.0")
 
-    // ROOM (Database locale) [cite: 815, 816]
+    // ROOM (Database locale)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
 
-    // Lifecycle & ViewModel per Compose [cite: 820]
+    // Lifecycle & ViewModel per Compose + XML
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.7")
+    implementation("androidx.activity:activity-ktx:1.8.2")
 
     // Test ed emulatori
     testImplementation(libs.junit)
