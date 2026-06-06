@@ -27,6 +27,7 @@ data class Valutazione(
     val pazienteIdVisitato: Long, // Prima chiave esterna
     val personaleIdResponsabile: Long, // Seconda chiave esterna
     val dataValutazione: String,
-    val punteggioDermatologico: Int,
-    val noteNotevoli: String
+    val tipologiaIndice: String,
+    val punteggioFinale: Double // Gestisce i decimali di PASI, EASI, BMI e BSA
+    /*val classeClinica: String,   // Es: "lieve", "moderata", "severa" DA RIVEDERE*/
 )
