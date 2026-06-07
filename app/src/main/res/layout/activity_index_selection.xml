@@ -16,12 +16,7 @@
         android:paddingBottom="@dimen/toolbar_padding_vertical"
         app:navigationIcon="@drawable/ic_back_arrow"
         app:navigationContentDescription="@string/nav_back_description">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="bottom">
-        </LinearLayout>
+
         <ImageView
             android:id="@+id/accountCircle"
             android:layout_width="@dimen/toolbar_account_icon_size"
@@ -34,186 +29,14 @@
             app:tint="?attr/colorOnPrimary"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:contentDescription="@string/main_content_description"
-        android:scrollbars="vertical"
-        android:fadeScrollbars="true"
-        android:scrollbarSize="6dp"
-        android:scrollbarStyle="outsideOverlay">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/screen_padding">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/card_margin_bottom"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:cardBackgroundColor="?attr/colorSurface"
-                app:strokeColor="?attr/colorOutline"
-                app:strokeWidth="@dimen/card_stroke_width"
-                app:cardElevation="@dimen/card_elevation">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/card_padding_small">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/card_title_margin_top"
-                        android:layout_marginBottom="@dimen/card_title_margin_bottom"
-                        android:text="@string/title_pasi"
-                        android:textColor="?attr/colorOnSurface"
-                        android:textSize="@dimen/text_size_card_title"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/desc_pasi"
-                        android:textSize="@dimen/text_size_card_body"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/btn_start_calculation"
-                        android:textColor="?attr/colorOnSecondary"
-                        android:backgroundTint="?attr/colorSecondary"
-                        app:cornerRadius="@dimen/button_corner_radius"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:cardBackgroundColor="?attr/colorPrimary"
-                app:cardElevation="@dimen/card_elevation_primary" >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/card_padding_small">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_easi"
-                        android:textSize="@dimen/text_size_card_title"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnPrimary"
-                        android:layout_marginTop="@dimen/card_title_margin_top"
-                        android:layout_marginBottom="@dimen/card_title_margin_bottom"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/desc_easi"
-                        android:textSize="@dimen/text_size_card_body"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
-                    <Button android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/btn_start_calculation"
-                        android:textColor="?attr/colorOnTertiary"
-                        android:backgroundTint="?attr/colorTertiary"
-                        app:cornerRadius="@dimen/button_corner_radius"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/card_margin_bottom"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:cardBackgroundColor="?attr/colorSurface"
-                app:strokeColor="?attr/colorOutline"
-                app:strokeWidth="@dimen/card_stroke_width"
-                app:cardElevation="@dimen/card_elevation">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/card_padding_small">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_bmi"
-                        android:textSize="@dimen/text_size_card_title"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnSurface"
-                        android:layout_marginTop="@dimen/card_title_margin_top"
-                        android:layout_marginBottom="@dimen/card_title_margin_bottom"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/desc_bmi"
-                        android:textSize="@dimen/text_size_card_body"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/btn_start_calculation"
-                        android:textColor="?attr/colorOnSecondary"
-                        android:backgroundTint="?attr/colorSecondary"
-                        app:cornerRadius="@dimen/button_corner_radius"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
-                app:cardCornerRadius="@dimen/card_corner_radius"
-                app:cardBackgroundColor="?attr/colorPrimary"
-                app:cardElevation="@dimen/card_elevation_primary" >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/card_padding_small">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/title_bsa"
-                        android:textSize="@dimen/text_size_card_title"
-                        android:textStyle="bold"
-                        android:textColor="?attr/colorOnPrimary"
-                        android:layout_marginTop="@dimen/card_title_margin_top"
-                        android:layout_marginBottom="@dimen/card_title_margin_bottom"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/desc_bsa"
-                        android:textSize="@dimen/text_size_card_body"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
-                    <Button android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/btn_start_calculation"
-                        android:textColor="?attr/colorOnTertiary"
-                        android:backgroundTint="?attr/colorTertiary"
-                        app:cornerRadius="@dimen/button_corner_radius"/>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-    </ScrollView>
+        app:navGraph="@navigation/nav_graph"
+        app:defaultNavHost="true"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -231,7 +54,6 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
-
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
@@ -253,14 +75,12 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
-
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
                 android:src="@drawable/ic_patients"
                 android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
                 app:tint="?attr/colorSecondary" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -275,14 +95,12 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
-
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
                 android:src="@drawable/ic_reports"
                 android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
                 app:tint="?attr/colorSecondary" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -297,14 +115,12 @@
             android:layout_weight="1"
             android:orientation="vertical"
             android:gravity="center">
-
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
                 android:src="@drawable/ic_contrast"
                 android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
                 app:tint="?attr/colorSecondary" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -312,6 +128,6 @@
                 android:textSize="@dimen/text_size_nav_label"
                 android:textColor="?attr/colorSecondary" />
         </LinearLayout>
-
     </LinearLayout>
+
 </LinearLayout>

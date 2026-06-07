@@ -52,6 +52,8 @@ dependencies {
     // Core e UI XML
     implementation(libs.androidx.core.ktx)
     implementation("com.google.android.material:material:1.14.0")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     // ROOM (Database locale)
     implementation(libs.androidx.room.runtime)
