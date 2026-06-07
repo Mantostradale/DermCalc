@@ -11,5 +11,15 @@
         android:name="com.example.dermcalc.IndexSelectionFragment"
         android:label="fragment_index_selection"
         tools:layout="@layout/fragment_index_selection">
+
+        <action
+            android:id="@+id/action_indexSelection_to_pasi"
+            app:destination="@id/pasiFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/pasiFragment"
+        android:name="com.example.dermcalc.PasiFragment"
+        android:label="Calcolatore PASI"
+        tools:layout="@layout/fragment_index_pasi" />
 </navigation>

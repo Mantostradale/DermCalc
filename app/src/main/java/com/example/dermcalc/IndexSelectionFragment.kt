@@ -21,12 +21,12 @@ class IndexSelectionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*// Navigazione verso PASI
+        // Navigazione verso PASI
         view.findViewById<Button>(R.id.btnPasi).setOnClickListener {
             findNavController().navigate(R.id.action_indexSelection_to_pasi)
         }
 
-        // Navigazione verso EASI
+        /* Navigazione verso EASI
         view.findViewById<Button>(R.id.btnEasi).setOnClickListener {
             findNavController().navigate(R.id.action_indexSelection_to_easi)
         }
