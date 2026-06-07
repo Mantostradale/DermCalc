@@ -34,4 +34,7 @@ interface DermCalcDAO {
     // Query per login. Se non trova l'utente restituisce null
     @Query("SELECT * FROM personale WHERE username = :user AND passwordCifrata = :pass LIMIT 1")
     suspend fun verificaLogin(user: String, pass: String): Personale?
+    // Dato un ID, trova le informazioni di quel personale
+    @Query("SELECT * FROM personale WHERE personaleId = :id LIMIT 1")
+    suspend fun getDottoreById(id: Long): Personale?
 }

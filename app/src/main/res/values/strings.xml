@@ -31,4 +31,38 @@
     <string name="nav_patients">Pazienti</string>
     <string name="nav_reports">Referti</string>
     <string name="nav_change_theme">Cambia Tema</string>
+
+    <!-- Stringhe Indice EASI -->
+    <string name="easi_title">Calcolo Indice EASI</string>
+    <string name="easi_description">Seleziona i parametri di gravità (0-4) e l\'area coinvolta (0-6) per ciascun distretto corporeo. Spunta \'Zona Esente\' se l\'area non è interessata.</string>
+
+    <string name="easi_patient_not_selected">Seleziona un paziente per calcolare l\'indice EASI</string>
+
+    <string name="easi_section_head">Testa (H)</string>
+    <string name="easi_section_trunk">Tronco (T)</string>
+    <string name="easi_section_upper">Arti Superiori (U)</string>
+    <string name="easi_section_lower">Arti Inferiori (L)</string>
+
+    <string name="easi_zone_exempt">Zona Esente</string>
+
+    <string name="easi_param_erythema">Eritema (Rossore)</string>
+    <string name="easi_param_induration">Infiltrazione (Spessore)</string>
+    <string name="easi_param_desquamation">Desquamazione (Squame)</string>
+    <string name="easi_param_excoriation">Escoriazione (Graffi)</string>
+    <string name="easi_param_area">Area Corporea Coinvolta</string>
+
+    <string name="easi_result_score_label">Punteggio Totale EASI</string>
+    <string name="easi_result_score_default">0.0</string>
+    <string name="easi_result_severity_label">Classe di Severità</string>
+    <string name="easi_result_severity_default">Lieve</string>
+    <string name="easi_btn_calculate">Calcola Risultato</string>
+
+    <string name="easi_severity_clear">Quasi Assente</string>
+    <string name="easi_severity_mild">Lieve</string>
+    <string name="easi_severity_moderate">Moderato</string>
+    <string name="easi_severity_severe">Grave</string>
+    <string name="easi_severity_very_severe">Molto Grave</string>
+
+    <string name="easi_btn_save">Salva Valutazione</string>
+
 </resources>

@@ -1,35 +1,89 @@
 package com.example.dermcalc
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.WindowCompat
-import com.example.dermcalc.ui.theme.DermCalcTheme
 
 class MainActivity : AppCompatActivity() {
+
+    private var isLogged = false
+    private var loggedDoctorId: Long? = null
+
+    private val loginLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data: Intent? = result.data
+
+            // Gestione pulita tramite cast a Long? (Senza -1L)
+            val idRicevuto: Long? = data?.extras?.get("DOCTOR_ID_RESULT") as? Long
+            val cognomeRicevuto = data?.getStringExtra("DOCTOR_SURNAME_RESULT")
+
+            if (idRicevuto != null) {
+                loggedDoctorId = idRicevuto
+                isLogged = true
+                Toast.makeText(this, "Login verificato! Benvenuto Dottore.", Toast.LENGTH_SHORT).show()
+
+                val txtNomeDottore = findViewById<TextView>(R.id.txtNomeDottoreToolbar)
+                if (!cognomeRicevuto.isNullOrEmpty()) {
+                    txtNomeDottore.text = cognomeRicevuto
+                }
+            }
+        }
+    }
+
+    // Intercetta il comando di Logout inviato dalla ProfileActivity tramite CLEAR_TOP
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+
+        val deveDisconnettere = intent.getBooleanExtra("COMMAND_LOGOUT", false)
+        if (deveDisconnettere) {
+            loggedDoctorId = null
+            isLogged = false
+
+            val txtNomeDottore = findViewById<TextView>(R.id.txtNomeDottoreToolbar)
+            txtNomeDottore.text = getString(R.string.guest_user)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-
-
         setContentView(R.layout.activity_main)
 
-        val btn = findViewById<Button>(R.id.btnCalcola)
-        btn.setOnClickListener {
-            val intent = Intent(this, IndexSelectionActivity::class.java)
-            startActivity(intent)
+        val btnCalcola = findViewById<Button>(R.id.btnCalcola)
+        val imgProfilo = findViewById<ImageView>(R.id.accountCircle)
+
+        imgProfilo.setOnClickListener {
+            if (!isLogged || loggedDoctorId == null) {
+                val intentLogin = Intent(this, LoginActivity::class.java)
+                loginLauncher.launch(intentLogin)
+            } else {
+                val intentProfilo = Intent(this, ProfileActivity::class.java).apply {
+                    putExtra("DOCTOR_ID", loggedDoctorId)
+                }
+                startActivity(intentProfilo)
+            }
+        }
+
+        btnCalcola.setOnClickListener {
+            if (!isLogged || loggedDoctorId == null) {
+                Toast.makeText(
+                    this,
+                    "Per poter utilizzare gli strumenti, c'è bisogno di essere loggati.",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val intent = Intent(this, IndexSelectionActivity::class.java).apply {
+                    putExtra("DOCTOR_ID", loggedDoctorId)
+                }
+                startActivity(intent)
+            }
         }
     }
 }

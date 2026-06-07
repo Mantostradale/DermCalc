@@ -27,6 +27,7 @@
                 android:textSize="@dimen/text_size_welcome"/>
 
             <TextView
+                android:id="@+id/txtNomeDottoreToolbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"

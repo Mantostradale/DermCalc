@@ -24,4 +24,38 @@
     <string name="desc_bmi">Body Mass Index</string>
     <string name="desc_bsa">Percentage of body surface area affected by a condition</string>
     <string name="desc_indices">Calculate clinical indices quickly. Enter the values and get the result straight away.</string>
+
+    <!-- Index EASI Strings-->
+    <string name="easi_title">EASI Score Calculator</string>
+    <string name="easi_description">Select the severity parameters (0-4) and the affected area (0-6) for each body region. Check \'Exempt Zone\' if the area is not affected.</string>
+
+    <string name="easi_patient_not_selected">Choose a patient to do the index on him</string>
+
+    <string name="easi_section_head">Head (H)</string>
+    <string name="easi_section_trunk">Trunk (T)</string>
+    <string name="easi_section_upper">Upper Extremities (U)</string>
+    <string name="easi_section_lower">Lower Extremities (L)</string>
+
+    <string name="easi_zone_exempt">Exempt Zone</string>
+
+    <string name="easi_param_erythema">Eritema (Redness)</string>
+    <string name="easi_param_induration">Induration (Thickness)</string>
+    <string name="easi_param_excoriation">Excoriation (Scratching)</string>
+    <string name="easi_param_desquamation">Desquamation (Scaling)</string>
+    <string name="easi_param_area">Affected Body Area</string>
+
+    <string name="easi_result_score_label">EASI Total Score</string>
+    <string name="easi_result_score_default">0.0</string>
+    <string name="easi_result_severity_label">Severity Class</string>
+    <string name="easi_result_severity_default">Mild</string>
+    <string name="easi_btn_calculate">Calculate Result</string>
+
+    <string name="easi_severity_clear">Clear</string>
+    <string name="easi_severity_mild">Mild</string>
+    <string name="easi_severity_moderate">Moderate</string>
+    <string name="easi_severity_severe">Severe</string>
+    <string name="easi_severity_very_severe">Very Severe</string>
+
+    <string name="easi_btn_save">Save Assessment</string>
+
 </resources>

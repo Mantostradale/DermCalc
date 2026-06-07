@@ -86,6 +86,14 @@ abstract class AppDatabase : RoomDatabase() {
                     username = "ebianchi",
                     passwordCifrata = "bianchi2026"
                 ))
+                dao.inserisciPaziente(Paziente(
+                    pazienteId = 0,
+                    personaleIdResponsabile = 2,
+                    nome = "Francesco",
+                    cognome = "Mariani",
+                    codiceFiscale = "MRNFNC84M12F205Z",
+                    dataNascita = "1984-08-12"
+                ))
             }
         }
     }
