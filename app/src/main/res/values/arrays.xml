@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="easi_severity_scores">
+        <item>0 - Assente</item>
+        <item>1 - Lieve</item>
+        <item>2 - Moderato</item>
+        <item>3 - Grave</item>
+    </string-array>
+
+    <string-array name="pasi_severity_scores">
+        <item>0 - Nessuno</item>
+        <item>1 - Lieve</item>
+        <item>2 - Moderato</item>
+        <item>3 - Grave</item>
+        <item>4 - Molto grave</item>
+    </string-array>
+
+
+    <string-array name="area_scores">
+        <item>0 - 0% (Nessuna presenza)</item>
+        <item>1 - 1-9%</item>
+        <item>2 - 10-29%</item>
+        <item>3 - 30-49%</item>
+        <item>4 - 50-69%</item>
+        <item>5 - 70-89%</item>
+        <item>6 - 90-100% (Totale)</item>
+    </string-array>
+</resources>

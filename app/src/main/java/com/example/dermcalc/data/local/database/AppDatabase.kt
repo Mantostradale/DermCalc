@@ -88,7 +88,7 @@ abstract class AppDatabase : RoomDatabase() {
                 ))
                 dao.inserisciPaziente(Paziente(
                     pazienteId = 0,
-                    personaleIdResponsabile = 2,
+                    personaleIdResponsabile = 4,
                     nome = "Francesco",
                     cognome = "Mariani",
                     codiceFiscale = "MRNFNC84M12F205Z",

@@ -60,35 +60,46 @@
             app:cardElevation="@dimen/card_elevation_primary"
             app:rippleColor="?attr/colorOnPrimary">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="16dp">
-                <ImageView
-                    android:id="@+id/imgPatientIcon"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_patient"
-                    app:tint="?attr/colorOnPrimary" />
+                android:layout_height="wrap_content">
+
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp">
-                    <TextView
-                        android:id="@+id/txtPatientName"
-                        android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+                    <ImageView
+                        android:id="@+id/imgPatientIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_patient"
+                        app:tint="?attr/colorOnPrimary" />
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/easi_patient_not_selected"
-                        android:textColor="?attr/colorOnPrimaryContainer"
-                        android:textSize="14sp"
-                        android:layout_marginTop="2dp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp">
+                        <TextView
+                            android:id="@+id/txtPatientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/easi_patient_not_selected"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            android:textSize="14sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/spinnerPazientiNascosto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible" />
+            </FrameLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -134,19 +145,19 @@
                     android:padding="@dimen/card_padding_small">
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerHeadErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerHeadInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lichenificazione:" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerHeadLichenification" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_excoriation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerHeadExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerHeadArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -194,19 +205,19 @@
                     android:padding="@dimen/card_padding_small">
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerTrunkErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerTrunkInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lichenificazione:" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerTrunkLichenification" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_excoriation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerTrunkExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerTrunkArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -254,19 +265,19 @@
                     android:padding="@dimen/card_padding_small">
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerUpperErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerUpperInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lichenificazione:" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerUpperLichenification" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_excoriation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerUpperExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp" />
+                    <Spinner android:id="@+id/spinnerUpperArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -314,19 +325,19 @@
                     android:padding="@dimen/card_padding_small">
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerLowerErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerLowerInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Lichenificazione:" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerLowerLichenification" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_excoriation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerLowerExcoriation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/easi_severity_scores"/>
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item"/>
+                    <Spinner android:id="@+id/spinnerLowerArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
