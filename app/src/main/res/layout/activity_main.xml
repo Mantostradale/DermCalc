@@ -205,18 +205,22 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnNavPatients"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
 
             <ImageView
-                android:layout_width="@dimen/icon_size_nav"
-                android:layout_height="@dimen/icon_size_nav"
-                android:src="@drawable/ic_patients"
-                android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
-                app:tint="?attr/colorSecondary" />
+            android:layout_width="@dimen/icon_size_nav"
+            android:layout_height="@dimen/icon_size_nav"
+            android:src="@drawable/ic_patients"
+            android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
+            app:tint="?attr/colorSecondary" />
 
             <TextView
                 android:layout_width="wrap_content"

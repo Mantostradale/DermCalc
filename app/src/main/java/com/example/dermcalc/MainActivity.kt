@@ -3,8 +3,10 @@ package com.example.dermcalc
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -80,6 +82,22 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             } else {
                 val intent = Intent(this, IndexSelectionActivity::class.java).apply {
+                    putExtra("DOCTOR_ID", loggedDoctorId)
+                }
+                startActivity(intent)
+            }
+        }
+
+        val btnNavPatients = findViewById<LinearLayout>(R.id.btnNavPatients)
+        btnNavPatients.setOnClickListener {
+            if (!isLogged || loggedDoctorId == null) {
+                Toast.makeText(
+                    this,
+                    "Per poter utilizzare gli strumenti, c'è bisogno di essere loggati.",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val intent = Intent(this, PatientActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
                 }
                 startActivity(intent)

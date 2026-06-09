@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="@dimen/toolbar_elevation"
+        android:paddingTop="@dimen/toolbar_padding_vertical"
+        android:paddingBottom="@dimen/toolbar_padding_vertical"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:navigationContentDescription="@string/nav_back_description">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="bottom">
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/accountCircle"
+            android:layout_width="@dimen/toolbar_account_icon_size"
+            android:layout_height="@dimen/toolbar_account_icon_size"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/toolbar_account_icon_margin_end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/toolbar_account_icon_padding"
+            android:src="@drawable/ic_account_circle"
+            app:tint="?attr/colorOnPrimary"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <Spinner
+        android:id="@+id/spinnerPazientiNascosto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+</LinearLayout>

@@ -18,6 +18,10 @@
         <action
             android:id="@+id/action_indexSelection_to_easi"
             app:destination="@id/easiFragment" />
+
+        <action
+            android:id="@+id/action_indexSelection_to_bmi"
+            app:destination="@id/BMIFragment" />
     </fragment>
 
     <fragment
@@ -31,4 +35,10 @@
         android:name="com.example.dermcalc.EasiFragment"
         android:label="Calcolatore EASI"
         tools:layout="@layout/fragment_index_easi" />
+
+    <fragment
+        android:id="@+id/BMIFragment"
+        android:name="com.example.dermcalc.BMIFragment"
+        android:label="Calcolatore BMI"
+        tools:layout="@layout/fragment_index_bmi" />
 </navigation>
