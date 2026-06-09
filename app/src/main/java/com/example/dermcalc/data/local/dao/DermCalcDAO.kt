@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.example.dermcalc.data.local.entity.DatiBiometrici
 import com.example.dermcalc.data.local.entity.DatiEASI
 import com.example.dermcalc.data.local.entity.DatiPASI
 import com.example.dermcalc.data.local.entity.Paziente
@@ -11,11 +12,9 @@ import com.example.dermcalc.data.local.entity.Personale
 import com.example.dermcalc.data.local.entity.Valutazione
 import kotlinx.coroutines.flow.Flow
 
-
 @Dao
 interface DermCalcDAO {
     // ABORT: Evita duplicati
-    // Serve per forza questa query, per creare almeno un Utente durante l'inizializzazione del DB
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun inserisciPersonale(personale: Personale): Long
 
@@ -23,7 +22,7 @@ interface DermCalcDAO {
     suspend fun inserisciPaziente(paziente: Paziente): Long
 
     @Insert
-    suspend fun inserisciValutazione(valutazione: Valutazione): Long // Deve restituire Long!
+    suspend fun inserisciValutazione(valutazione: Valutazione): Long
 
     @Insert
     suspend fun inserisciDatiEasi(datiEasi: DatiEASI)
@@ -42,7 +41,25 @@ interface DermCalcDAO {
     // Query per login. Se non trova l'utente restituisce null
     @Query("SELECT * FROM personale WHERE username = :user AND passwordCifrata = :pass LIMIT 1")
     suspend fun verificaLogin(user: String, pass: String): Personale?
+
     // Dato un ID, trova le informazioni di quel personale
     @Query("SELECT * FROM personale WHERE personaleId = :id LIMIT 1")
     suspend fun getDottoreById(id: Long): Personale?
+
+    // Query per estrarre i dettagli (allineate con i nomi usati nel frammento)
+    @Query("SELECT * FROM dati_easi WHERE valutazioneId = :id LIMIT 1")
+    suspend fun getDettagliEasiPerId(id: Long): DatiEASI?
+
+    @Query("SELECT * FROM dati_pasi WHERE valutazioneId = :id LIMIT 1")
+    suspend fun getDettagliPasiPerId(id: Long): DatiPASI?
+
+    @Query("SELECT * FROM dati_biometrici WHERE valutazioneId = :id LIMIT 1")
+    suspend fun getBiometriciPerId(id: Long): DatiBiometrici?
+
+    @Query("SELECT * FROM valutazione WHERE personaleIdResponsabile = :medicoId ORDER BY dataValutazione DESC")
+    fun getReportValutazioniDelMedico(medicoId: Long): Flow<List<Valutazione>>
+
+    @Query("DELETE FROM valutazione WHERE valutazioneId = :id")
+    suspend fun cancellaValutazionePerId(id: Long)
 }
+

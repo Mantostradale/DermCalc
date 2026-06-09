@@ -103,5 +103,21 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+        val btnReports = findViewById<LinearLayout>(R.id.btnReports)
+        btnReports.setOnClickListener {
+            if (!isLogged || loggedDoctorId == null) {
+                Toast.makeText(
+                    this,
+                    "Per poter utilizzare gli strumenti, c'è bisogno di essere loggati.",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val intent = Intent(this, ReportsActivity::class.java).apply {
+                    putExtra("DOCTOR_ID", loggedDoctorId)
+                }
+                startActivity(intent)
+            }
+        }
     }
 }
