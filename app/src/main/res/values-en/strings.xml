@@ -58,4 +58,10 @@
 
     <string name="easi_btn_save">Save Assessment</string>
 
+    <!-- Index PASI Strings -->
+    <string name="pasi_title">PASI Score Calculator</string>
+    <string name="pasi_description">Select the severity parameters (0-4) and the involved area (0-6) for each body region. Check \'Exempt Zone\' if the area is not affected.</string>
+    <string name="pasi_patient_not_selected">Select a patient to calculate the PASI score</string>
+    <string name="pasi_result_score_label">Total PASI Score</string>
+
 </resources>

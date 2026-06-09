@@ -65,4 +65,11 @@
 
     <string name="easi_btn_save">Salva Valutazione</string>
 
+    <!-- Stringhe Indice PASI -->
+    <string name="pasi_title">Calcolo Indice PASI</string>
+    <string name="pasi_description">Seleziona i parametri di gravità (0-4) e l\'area coinvolta (0-6) per ciascun distretto corporeo. Spunta \'Zona Esente\' se l\'area non è interessata.</string>
+    <string name="pasi_patient_not_selected">Seleziona un paziente per calcolare l\'indice PASI</string>
+
+    <string name="pasi_result_score_label">Punteggio Totale PASI</string>
+
 </resources>

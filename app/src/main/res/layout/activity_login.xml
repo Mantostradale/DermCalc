@@ -58,7 +58,8 @@
             android:text="Accedi"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/text_size_username"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            app:cornerRadius="100dp"/>
 
     </LinearLayout>
 </LinearLayout>

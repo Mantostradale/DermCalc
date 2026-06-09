@@ -49,11 +49,15 @@
         android:elevation="@dimen/nav_bar_elevation">
 
         <LinearLayout
+            android:id="@+id/btnHome"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
@@ -70,11 +74,15 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnPatients"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
@@ -90,11 +98,15 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnReports"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"
@@ -110,11 +122,15 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btnChangeTheme"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground">
             <ImageView
                 android:layout_width="@dimen/icon_size_nav"
                 android:layout_height="@dimen/icon_size_nav"

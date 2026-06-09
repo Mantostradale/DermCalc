@@ -2,6 +2,7 @@ package com.example.dermcalc
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
@@ -15,12 +16,20 @@ class IndexSelectionActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         toolbar.setNavigationOnClickListener {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                // flags che permettono di far tornare indietro
-                // la MainActivity originaria senza resettare il log.
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            }
-            startActivity(intent)
+            onBackPressedDispatcher.onBackPressed()
         }
+
+        val btnHome = findViewById<LinearLayout>(R.id.btnHome)
+        btnHome.setOnClickListener {
+            tornaAllaHome()
+        }
+    }
+
+    private fun tornaAllaHome() {
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        }
+        startActivity(intent)
+        finish()
     }
 }

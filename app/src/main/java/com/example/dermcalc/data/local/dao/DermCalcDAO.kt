@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.dermcalc.data.local.entity.DatiEASI
+import com.example.dermcalc.data.local.entity.DatiPASI
 import com.example.dermcalc.data.local.entity.Paziente
 import com.example.dermcalc.data.local.entity.Personale
 import com.example.dermcalc.data.local.entity.Valutazione
@@ -26,6 +27,9 @@ interface DermCalcDAO {
 
     @Insert
     suspend fun inserisciDatiEasi(datiEasi: DatiEASI)
+
+    @Insert
+    suspend fun inserisciDatiPasi(datiPasi: DatiPASI)
 
     // Trova tutte le valutazioni di un specifico paziente
     @Query("SELECT * FROM valutazione WHERE pazienteIdVisitato = :pazienteId ORDER BY dataValutazione DESC")
