@@ -30,6 +30,9 @@ interface DermCalcDAO {
     @Insert
     suspend fun inserisciDatiPasi(datiPasi: DatiPASI)
 
+    @Insert
+    suspend fun inserisciDatiBiometrici(datiBiometrici: DatiBiometrici)
+
     // Trova tutte le valutazioni di un specifico paziente
     @Query("SELECT * FROM valutazione WHERE pazienteIdVisitato = :pazienteId ORDER BY dataValutazione DESC")
     fun getValutazioniDelPaziente(pazienteId: Long): Flow<List<Valutazione>>

@@ -1,6 +1,5 @@
 package com.example.dermcalc
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -55,17 +54,28 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
                         iniettaCardClinica(dynamicContainer, "ARTI SUPERIORI (EASI)", "Eritema: ${dettagli.eArtiSup} • Edema: ${dettagli.iArtiSup}\nLichenificazione: ${dettagli.lArtiSup} • Escoriazione: ${dettagli.escoriazioneArtiSup}\nArea: ${convertiArea(dettagli.aArtiSup)}")
                         iniettaCardClinica(dynamicContainer, "ARTI INFERIORI (EASI)", "Eritema: ${dettagli.eArtiInf} • Edema: ${dettagli.iArtiInf}\nLichenificazione: ${dettagli.lArtiInf} • Escoriazione: ${dettagli.escoriazioneArtiInf}\nArea: ${convertiArea(dettagli.aArtiInf)}")
                     } else {
-                        Toast.makeText(requireContext(), "Dati di dettaglio EASI non trovati!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Dati EASI non trovati!", Toast.LENGTH_SHORT).show()
                     }
                 }
                 "PASI" -> {
-                    iniettaCardClinica(dynamicContainer, "DETTAGLIO PASI", "Visualizzazione parametri specifici PASI in fase di sviluppo.")
+                    // 🚀 Recupero dei dati reali PASI dal DB (Assicurati di avere questo metodo nel DAO, es: getDettagliPasiPerId)
+                    val dettagli = db.DermCalcDao().getDettagliPasiPerId(idValutazione)
+                    if (dettagli != null) {
+                        iniettaCardClinica(dynamicContainer, "TESTA (PASI)", "Eritema: ${dettagli.eTesta} • Infiltrazione: ${dettagli.iTesta}\nDesquamazione: ${dettagli.dTesta}\nArea: ${convertiArea(dettagli.aTesta)}")
+                        iniettaCardClinica(dynamicContainer, "TRONCO (PASI)", "Eritema: ${dettagli.eTronco} • Infiltrazione: ${dettagli.iTronco}\nDesquamazione: ${dettagli.dTronco}\nArea: ${convertiArea(dettagli.aTronco)}")
+                        iniettaCardClinica(dynamicContainer, "ARTI SUPERIORI (PASI)", "Eritema: ${dettagli.eArtiSup} • Infiltrazione: ${dettagli.iArtiSup}\nDesquamazione: ${dettagli.dArtiSup}\nArea: ${convertiArea(dettagli.aArtiSup)}")
+                        iniettaCardClinica(dynamicContainer, "ARTI INFERIORI (PASI)", "Eritema: ${dettagli.eArtiInf} • Infiltrazione: ${dettagli.iArtiInf}\nDesquamazione: ${dettagli.dArtiInf}\nArea: ${convertiArea(dettagli.aArtiInf)}")
+                    } else {
+                        Toast.makeText(requireContext(), "Dati PASI non trovati!", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                "BMI" -> {
-                    iniettaCardClinica(dynamicContainer, "BODY MASS INDEX (BMI)", "Calcolo eseguito in base a peso e altezza del paziente.")
-                }
-                "BSA" -> {
-                    iniettaCardClinica(dynamicContainer, "BODY SURFACE AREA (BSA)", "Visualizzazione della superficie corporea totale interessata.")
+                "BMI", "BSA" -> {
+                    val bio = db.DermCalcDao().getBiometriciPerId(idValutazione)
+                    if (bio != null) {
+                        iniettaCardClinica(dynamicContainer, "DATI ANTROPOMETRICI", "Altezza: ${bio.altezza} cm\nPeso: ${bio.peso} kg")
+                    } else {
+                        Toast.makeText(requireContext(), "Dati biometrici non trovati!", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 else -> {
                     iniettaCardClinica(dynamicContainer, "ERRORE", "Tipologia indice sconosciuta o non supportata.")
@@ -73,11 +83,13 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
             }
         }
 
-        // 2. Logica del bottone Elimina
+        // 2. Logica del bottone Elimina (Modificata con approccio del prof)
         btnDeleteAssessment.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 db.DermCalcDao().cancellaValutazionePerId(idValutazione)
                 Toast.makeText(requireContext(), "Valutazione eliminata", Toast.LENGTH_SHORT).show()
+
+                // ✅ METODO DEL PROF: Torna indietro rimuovendo il frammento dal backstack manuale
                 parentFragmentManager.popBackStack()
             }
         }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://tools.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/indexSelectionFragment">
 
@@ -18,10 +17,13 @@
         <action
             android:id="@+id/action_indexSelection_to_easi"
             app:destination="@id/easiFragment" />
-
         <action
             android:id="@+id/action_indexSelection_to_bmi"
             app:destination="@id/BMIFragment" />
+
+        <action
+            android:id="@+id/action_indexSelection_to_reports"
+            app:destination="@id/reportsFragment" />
     </fragment>
 
     <fragment
@@ -41,4 +43,23 @@
         android:name="com.example.dermcalc.BMIFragment"
         android:label="Calcolatore BMI"
         tools:layout="@layout/fragment_index_bmi" />
+
+
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.example.dermcalc.ReportsFragment"
+        android:label="Storico Referti"
+        tools:layout="@layout/fragment_reports">
+
+        <action
+            android:id="@+id/action_reports_to_detail"
+            app:destination="@id/reportsDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportsDetailFragment"
+        android:name="com.example.dermcalc.ReportsDetailFragment"
+        android:label="Dettaglio Referto"
+        tools:layout="@layout/fragment_reports_details" />
+
 </navigation>

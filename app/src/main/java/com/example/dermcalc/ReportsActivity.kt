@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.fragment.NavHostFragment
 
 class ReportsActivity : AppCompatActivity() {
 
@@ -21,28 +22,27 @@ class ReportsActivity : AppCompatActivity() {
             return
         }
 
+        // 1. Recuperiamo il NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.reportsFragmentContainer) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        // 2. 🚀 TRUCCO MAGICO: Forziamo il grafico e la destinazione corretta via codice
+        val navInflater = navController.navInflater
+        val grafico = navInflater.inflate(R.navigation.nav_graph)
+
+        // Specifichiamo a schermo che questa Activity deve PARTIRE dai report, non dalla selezione indici
+        grafico.setStartDestination(R.id.reportsFragment)
+
+        // Applichiamo il grafico configurato al controller
+        navController.graph = grafico
+
+        // 3. Gestione del tasto indietro sulla Toolbar
         val toolbar = findViewById<Toolbar>(R.id.profileToolbar)
         toolbar.setNavigationOnClickListener {
-            // Gestione del backstack per i frammenti
-            if (supportFragmentManager.backStackEntryCount > 0) {
-                supportFragmentManager.popBackStack()
-            } else {
+            if (!navController.navigateUp()) {
                 finish()
             }
         }
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.reportsFragmentContainer, ReportsFragment())
-                .commit()
-        }
-    }
-
-    fun apriDettaglio(valutazioneId: Long, tipologiaIndice: String) {
-        val fragmentDettaglio = ReportsDetailFragment.newInstance(valutazioneId, tipologiaIndice)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.reportsFragmentContainer, fragmentDettaglio)
-            .addToBackStack(null)
-            .commit()
     }
 }

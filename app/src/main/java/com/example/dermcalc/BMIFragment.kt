@@ -14,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.dermcalc.data.local.database.AppDatabase
 import com.example.dermcalc.data.local.entity.Paziente
 import com.example.dermcalc.data.local.entity.Valutazione
+import com.example.dermcalc.data.local.entity.DatiBiometrici
 import com.google.android.material.card.MaterialCardView
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -112,8 +113,18 @@ class BMIFragment : Fragment(R.layout.fragment_index_bmi) {
             }
 
             lifecycleScope.launch {
+                // 🚀 Prendiamo i valori correnti dagli EditText in modo sicuro dentro la coroutine
+                val weightStr = etWeight.text.toString()
+                val heightStr = etHeight.text.toString()
+
+                if (weightStr.isEmpty() || heightStr.isEmpty()) {
+                    Toast.makeText(requireContext(), "Dati incompleti per il salvataggio!", Toast.LENGTH_SHORT).show()
+                    return@launch
+                }
+
                 val dataFormattata = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(java.util.Date())
 
+                // 1. Inseriamo la valutazione generale
                 val nuovaValutazione = Valutazione(
                     valutazioneId = 0,
                     pazienteIdVisitato = paziente.pazienteId,
@@ -126,7 +137,17 @@ class BMIFragment : Fragment(R.layout.fragment_index_bmi) {
                 val idInserito = db.DermCalcDao().inserisciValutazione(nuovaValutazione)
 
                 if (idInserito > 0) {
-                    Toast.makeText(requireContext(), "BMI salvato con successo!", Toast.LENGTH_SHORT).show()
+                    // 2. Inseriamo i dati biometrici legandoli all'id appena generato
+                    val datiBio = DatiBiometrici(
+                        valutazioneId = idInserito,
+                        altezza = heightStr.toDouble(),
+                        peso = weightStr.toDouble()
+                    )
+
+                    // Richiama l'inserimento nel DAO
+                    db.DermCalcDao().inserisciDatiBiometrici(datiBio)
+
+                    Toast.makeText(requireContext(), "BMI e dati biometrici salvati!", Toast.LENGTH_SHORT).show()
 
                     // Reset rapido dello stato
                     punteggioFinaleCalcolato = null

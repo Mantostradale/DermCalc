@@ -8,6 +8,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.dermcalc.data.local.database.AppDatabase
 import com.example.dermcalc.data.local.entity.Valutazione
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
 
         val listViewReports = view.findViewById<ListView>(R.id.listViewReports)
         val activityGuscio = activity as? ReportsActivity
-        val idDottore = activityGuscio?.idDottoreLoggato ?: return // Se è null ferma l'esecuzione
+        val idDottore = activityGuscio?.idDottoreLoggato ?: return
 
         val db = AppDatabase.getDatabase(requireContext())
 
@@ -45,9 +46,16 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             }
         }
 
+        // ✅ METODO DEL PROF: Comunica direttamente con l'activity di guscio per cambiare frammento
         listViewReports.setOnItemClickListener { parent, _, position, _ ->
             val report = parent.getItemAtPosition(position) as Valutazione
-            activityGuscio.apriDettaglio(report.valutazioneId, report.tipologiaIndice)
+            val argomenti = Bundle().apply {
+                putLong("VALUTAZIONE_ID", report.valutazioneId)
+                putString("TIPOLOGIA_INDICE", report.tipologiaIndice)
+            }
+
+            // 🚀 Navigazione Kotlin standard tramite l'azione nel grafico
+            findNavController().navigate(R.id.action_reports_to_detail, argomenti)
         }
     }
 }

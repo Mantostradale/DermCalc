@@ -29,10 +29,13 @@
             app:tint="?attr/colorOnPrimary"/>
     </androidx.appcompat.widget.Toolbar>
 
-    <!-- Contenitore logico per lo swap dei frammenti verdi -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/reportsFragmentContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+        app:startDestination="@id/reportsFragment" />
 
 </LinearLayout>
