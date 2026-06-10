@@ -5,7 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.dermcalc.data.local.entity.DatiBiometrici
+import com.example.dermcalc.data.local.entity.DatiBMI
+import com.example.dermcalc.data.local.entity.DatiBSA
 import com.example.dermcalc.data.local.entity.DatiEASI
 import com.example.dermcalc.data.local.entity.DatiPASI
 import com.example.dermcalc.data.local.entity.Paziente
@@ -20,10 +21,10 @@ interface DermCalcDAO {
     suspend fun inserisciPersonale(personale: Personale): Long
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun inserisciPaziente(paziente: Paziente): Long // Rinominato in insertPaziente per l'activity
+    suspend fun inserisciPaziente(paziente: Paziente): Long
 
     @Delete
-    suspend fun rimuoviPaziente(paziente: Paziente) // AGGIUNTO: Tasto cancella (X) dell'activity
+    suspend fun rimuoviPaziente(paziente: Paziente)
 
     @Insert
     suspend fun inserisciValutazione(valutazione: Valutazione): Long
@@ -35,7 +36,10 @@ interface DermCalcDAO {
     suspend fun inserisciDatiPasi(datiPasi: DatiPASI)
 
     @Insert
-    suspend fun inserisciDatiBiometrici(datiBiometrici: DatiBiometrici)
+    suspend fun inserisciDatiBMI(datiBMI: DatiBMI)
+
+    @Insert
+    suspend fun inserisciDatiBSA(datiBsa: DatiBSA)
 
     // Trova tutte le valutazioni di un specifico paziente
     @Query("SELECT * FROM valutazione WHERE pazienteIdVisitato = :pazienteId ORDER BY dataValutazione DESC")
@@ -60,12 +64,17 @@ interface DermCalcDAO {
     @Query("SELECT * FROM dati_pasi WHERE valutazioneId = :id LIMIT 1")
     suspend fun getDettagliPasiPerId(id: Long): DatiPASI?
 
-    @Query("SELECT * FROM dati_biometrici WHERE valutazioneId = :id LIMIT 1")
-    suspend fun getBiometriciPerId(id: Long): DatiBiometrici?
+    @Query("SELECT * FROM dati_bmi WHERE valutazioneId = :id LIMIT 1")
+    suspend fun getDettagliBMIPerId(id: Long): DatiBMI?
+
+    @Query("SELECT * FROM dati_bsa WHERE valutazioneId = :id LIMIT 1")
+    suspend fun getDettagliBSAPerId(id: Long): DatiBSA?
+
 
     @Query("SELECT * FROM valutazione WHERE personaleIdResponsabile = :medicoId ORDER BY dataValutazione DESC")
     fun getReportValutazioniDelMedico(medicoId: Long): Flow<List<Valutazione>>
 
     @Query("DELETE FROM valutazione WHERE valutazioneId = :id")
     suspend fun cancellaValutazionePerId(id: Long)
+
 }

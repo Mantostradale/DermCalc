@@ -21,13 +21,11 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
 
-        // CORRETTO: ID allineato all'XML del login
         val toolbar = findViewById<Toolbar>(R.id.profileToolbar)
         setSupportActionBar(toolbar)
 
         val db = AppDatabase.getDatabase(this)
 
-        // CORRETTO: Chiude l'activity tornando alla MainActivity senza ricrearla da zero
         toolbar.setNavigationOnClickListener {
             finish()
         }

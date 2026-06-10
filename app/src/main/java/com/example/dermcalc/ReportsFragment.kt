@@ -46,7 +46,6 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             }
         }
 
-        // ✅ METODO DEL PROF: Comunica direttamente con l'activity di guscio per cambiare frammento
         listViewReports.setOnItemClickListener { parent, _, position, _ ->
             val report = parent.getItemAtPosition(position) as Valutazione
             val argomenti = Bundle().apply {
@@ -54,7 +53,6 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
                 putString("TIPOLOGIA_INDICE", report.tipologiaIndice)
             }
 
-            // 🚀 Navigazione Kotlin standard tramite l'azione nel grafico
             findNavController().navigate(R.id.action_reports_to_detail, argomenti)
         }
     }

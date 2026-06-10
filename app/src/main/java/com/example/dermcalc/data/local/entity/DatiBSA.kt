@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "dati_biometrici",
+    tableName = "dati_bsa",
     foreignKeys = [
         ForeignKey(
             entity = Valutazione::class,
@@ -15,8 +15,14 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class DatiBiometrici(
+data class DatiBSA(
     @PrimaryKey val valutazioneId: Long,
-    val altezza: Double,
-    val peso: Double
+    val testaCollo: Double,
+    val artoSupDx: Double,
+    val artoSupSx: Double,
+    val troncoAnt: Double,
+    val troncoPost: Double,
+    val artoInfDx: Double,
+    val artoInfSx: Double,
+    val genitali: Double
 )

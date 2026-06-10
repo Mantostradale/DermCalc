@@ -1,6 +1,272 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
+    android:scrollbars="vertical"
+    android:fadeScrollbars="true"
+    android:scrollbarSize="6dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardBackgroundColor="?attr/colorSurface"
+            app:strokeColor="?attr/colorOutline"
+            app:strokeWidth="@dimen/card_stroke_width"
+            app:cardElevation="@dimen/card_elevation">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding_small">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/card_title_margin_top"
+                    android:layout_marginBottom="@dimen/card_title_margin_bottom"
+                    android:text="Indice BSA"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="@dimen/text_size_card_title"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Calcolo della superficie corporea interessata (Body Surface Area) basato sulla scomposizione anatomica standard dei pesi percentuali."
+                    android:textSize="@dimen/text_size_card_body"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPatientSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardElevation="@dimen/card_elevation_primary"
+            app:rippleColor="?attr/colorOnPrimary">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+                    <ImageView
+                        android:id="@+id/imgPatientIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_patient"
+                        app:tint="?attr/colorOnPrimary" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp">
+                        <TextView
+                            android:id="@+id/txtPatientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/easi_patient_not_selected"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            android:textSize="14sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinnerPazientiNascosto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:strokeColor="?attr/colorOutline"
+            app:strokeWidth="@dimen/card_stroke_width"
+            app:cardElevation="@dimen/card_elevation">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimary"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Estensione Patologia per Area"
+                        android:textColor="?attr/colorOnPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding_small">
+
+                    <!-- Testa e Collo -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Testa e Collo (Max 9%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaTesta" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Arto Superiore Destro -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Superiore DX (Max 9%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoSupDx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Arto Superiore Sinistro -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Superiore SX (Max 9%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoSupSx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Tronco Anteriore -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tronco Anteriore (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaTroncoAnt" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Tronco Posteriore -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tronco Posteriore (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaTroncoPost" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Arto Inferiore Destro -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Inferiore DX (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoInfDx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Arto Inferiore Sinistro -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Inferiore SX (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoInfSx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+
+                    <!-- Genitali -->
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Genitali (Max 1%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
+                    <Spinner android:id="@+id/spinnerBsaGenitali" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CARD RISULTATI CONVERGENTE -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardElevation="@dimen/card_elevation_primary">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding_small"
+                android:gravity="center_horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginTop="@dimen/card_title_margin_top"
+                    android:layout_marginBottom="8dp">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Punteggio BSA"
+                            android:textSize="14sp"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:alpha="0.8"/>
+                        <TextView
+                            android:id="@+id/txtBsaResultScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0.0%"
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnPrimary"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Severità"
+                            android:textSize="14sp"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:alpha="0.8"/>
+                        <TextView
+                            android:id="@+id/txtBsaResultSeverity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnPrimary"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/btnCalculateBsa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easi_btn_calculate"
+                    android:textColor="?attr/colorOnTertiary"
+                    android:backgroundTint="?attr/colorTertiary"
+                    app:cornerRadius="@dimen/button_corner_radius"
+                    android:layout_marginBottom="8dp"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- BOTTONE SALVATAGGIO -->
+        <Button
+            android:id="@+id/btnSaveAssessment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/nav_padding_horizontal"
+            android:layout_marginEnd="@dimen/nav_padding_horizontal"
+            android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
+            android:backgroundTint="?attr/colorSecondary"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:icon="@drawable/ic_file_save"
+            app:iconPadding="12dp"
+            app:iconTint="?attr/colorOnPrimary"
+            app:iconGravity="textStart"
+            android:text="@string/easi_btn_save"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

@@ -70,7 +70,7 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
                     }
                 }
                 "BMI", "BSA" -> {
-                    val bio = db.DermCalcDao().getBiometriciPerId(idValutazione)
+                    val bio = db.DermCalcDao().getDettagliBMIPerId(idValutazione)
                     if (bio != null) {
                         iniettaCardClinica(dynamicContainer, "DATI ANTROPOMETRICI", "Altezza: ${bio.altezza} cm\nPeso: ${bio.peso} kg")
                     } else {
@@ -83,13 +83,11 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
             }
         }
 
-        // 2. Logica del bottone Elimina (Modificata con approccio del prof)
+        // 2. Logica del bottone Elimina
         btnDeleteAssessment.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 db.DermCalcDao().cancellaValutazionePerId(idValutazione)
                 Toast.makeText(requireContext(), "Valutazione eliminata", Toast.LENGTH_SHORT).show()
-
-                // ✅ METODO DEL PROF: Torna indietro rimuovendo il frammento dal backstack manuale
                 parentFragmentManager.popBackStack()
             }
         }
