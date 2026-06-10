@@ -3,7 +3,6 @@ package com.example.dermcalc
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -77,7 +76,7 @@ class MainActivity : AppCompatActivity() {
             if (!isLogged || loggedDoctorId == null) {
                 Toast.makeText(
                     this,
-                    "Per poter utilizzare gli strumenti, c'è bisogno di essere loggati.",
+                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
                     Toast.LENGTH_LONG
                 ).show()
             } else {
@@ -93,11 +92,12 @@ class MainActivity : AppCompatActivity() {
             if (!isLogged || loggedDoctorId == null) {
                 Toast.makeText(
                     this,
-                    "Per poter utilizzare gli strumenti, c'è bisogno di essere loggati.",
+                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
                     Toast.LENGTH_LONG
                 ).show()
             } else {
-                val intent = Intent(this, PatientActivity::class.java).apply {
+                // CORRETTO: Ora punta a PatientActivity
+                val intent = Intent(this, PatientsActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
                 }
                 startActivity(intent)
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
             if (!isLogged || loggedDoctorId == null) {
                 Toast.makeText(
                     this,
-                    "Per poter utilizzare gli strumenti, c'è bisogno di essere loggati.",
+                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
                     Toast.LENGTH_LONG
                 ).show()
             } else {

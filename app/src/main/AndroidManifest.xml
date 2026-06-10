@@ -32,7 +32,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".PatientActivity"
+            android:name=".PatientsActivity"
             android:exported="false" />
 
         <activity android:name=".ReportsActivity"

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://tools.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/indexSelectionFragment">
 
     <fragment
         android:id="@+id/indexSelectionFragment"
         android:name="com.example.dermcalc.IndexSelectionFragment"
-        android:label="fragment_index_selection"
+        android:label="Seleziona Indice"
         tools:layout="@layout/fragment_index_selection">
 
         <action
@@ -20,10 +20,12 @@
         <action
             android:id="@+id/action_indexSelection_to_bmi"
             app:destination="@id/BMIFragment" />
-
         <action
             android:id="@+id/action_indexSelection_to_reports"
             app:destination="@id/reportsFragment" />
+        <action
+            android:id="@+id/action_indexSelection_to_patients"
+            app:destination="@id/patientsFragment" />
     </fragment>
 
     <fragment
@@ -44,7 +46,6 @@
         android:label="Calcolatore BMI"
         tools:layout="@layout/fragment_index_bmi" />
 
-
     <fragment
         android:id="@+id/reportsFragment"
         android:name="com.example.dermcalc.ReportsFragment"
@@ -60,6 +61,34 @@
         android:id="@+id/reportsDetailFragment"
         android:name="com.example.dermcalc.ReportsDetailFragment"
         android:label="Dettaglio Referto"
-        tools:layout="@layout/fragment_reports_details" />
+        tools:layout="@layout/fragment_reports_details">
+        <argument
+            android:name="VALUTAZIONE_ID"
+            app:argType="long" />
+        <argument
+            android:name="TIPOLOGIA_INDICE"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/patientsFragment"
+        android:name="com.example.dermcalc.PatientsFragment"
+        android:label="Pazienti a carico"
+        tools:layout="@layout/fragment_patient">
+
+        <action
+            android:id="@+id/action_patients_to_detail"
+            app:destination="@id/reportsDetailFragment" />
+
+        <action
+            android:id="@+id/action_patients_to_add_patient"
+            app:destination="@id/addPatientFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addPatientFragment"
+        android:name="com.example.dermcalc.AddPatientFragment"
+        android:label="Aggiungi paziente"
+        tools:layout="@layout/fragment_add_patient" />
 
 </navigation>

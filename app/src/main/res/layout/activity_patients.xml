@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
+        android:id="@+id/profileToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -15,56 +15,24 @@
         android:paddingTop="@dimen/toolbar_padding_vertical"
         android:paddingBottom="@dimen/toolbar_padding_vertical"
         app:navigationIcon="@drawable/ic_back_arrow"
-        app:navigationContentDescription="@string/nav_back_description" />
+        app:navigationContentDescription="@string/nav_back_description">
 
-    <TextView
-        android:id="@+id/txtTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolBar"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="Pazienti a carico"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/accountCircle"
+            android:layout_width="@dimen/toolbar_account_icon_size"
+            android:layout_height="@dimen/toolbar_account_icon_size"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/toolbar_account_icon_margin_end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/toolbar_account_icon_padding"
+            android:src="@drawable/ic_account_circle"
+            app:tint="?attr/colorOnPrimary"/>
+    </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/txtTitle"
-        android:layout_above="@+id/layoutBottom"
-        android:padding="16dp"
-        android:clipToPadding="false">
-
-        <LinearLayout
-            android:id="@+id/containerPazienti"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/layoutBottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@android:color/white"
-        android:elevation="8dp"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/btnAddPatient"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="+ Aggiungi Nuovo Paziente"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:backgroundTint="?attr/colorPrimary"
-            app:cornerRadius="8dp" />
-    </LinearLayout>
-
-</RelativeLayout>
+        app:defaultNavHost="true" />
+</LinearLayout>

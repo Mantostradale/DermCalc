@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="24dp">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nuovo Paziente"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="?attr/colorOnSurface"/>
 
     <EditText
         android:id="@+id/edtNome"
@@ -31,11 +31,33 @@
         android:layout_marginBottom="12dp"/>
 
     <EditText
-        android:id="@+id/edtCodiceFiscale"
+        android:id="@+id/edtCF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Codice Fiscale"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:maxLength="16"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="24dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnAnnulla"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Annulla"
+            android:textColor="?attr/colorError"/>
+
+        <Button
+            android:id="@+id/btnSalva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salva"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 </LinearLayout>
