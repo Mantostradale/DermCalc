@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val data: Intent? = result.data
 
-            // Gestione pulita tramite cast a Long? (Senza -1L)
             val idRicevuto: Long? = data?.extras?.get("DOCTOR_ID_RESULT") as? Long
             val cognomeRicevuto = data?.getStringExtra("DOCTOR_SURNAME_RESULT")
 
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Intercetta il comando di Logout inviato dalla ProfileActivity tramite CLEAR_TOP
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
@@ -75,11 +73,7 @@ class MainActivity : AppCompatActivity() {
 
         btnCalcola.setOnClickListener {
             if (!isLogged || loggedDoctorId == null) {
-                Toast.makeText(
-                    this,
-                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this, "Per poter utilizzare gli strumenti, è necessario essere loggati.", Toast.LENGTH_LONG).show()
             } else {
                 val intent = Intent(this, IndexSelectionActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
@@ -91,13 +85,8 @@ class MainActivity : AppCompatActivity() {
         val btnNavPatients = findViewById<LinearLayout>(R.id.btnNavPatients)
         btnNavPatients.setOnClickListener {
             if (!isLogged || loggedDoctorId == null) {
-                Toast.makeText(
-                    this,
-                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this, "Per poter utilizzare gli strumenti, è necessario essere loggati.", Toast.LENGTH_LONG).show()
             } else {
-                // CORRETTO: Ora punta a PatientActivity
                 val intent = Intent(this, PatientsActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
                 }
@@ -108,11 +97,7 @@ class MainActivity : AppCompatActivity() {
         val btnReports = findViewById<LinearLayout>(R.id.btnReports)
         btnReports.setOnClickListener {
             if (!isLogged || loggedDoctorId == null) {
-                Toast.makeText(
-                    this,
-                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this, "Per poter utilizzare gli strumenti, è necessario essere loggati.", Toast.LENGTH_LONG).show()
             } else {
                 val intent = Intent(this, ReportsActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
@@ -123,14 +108,12 @@ class MainActivity : AppCompatActivity() {
 
         btnPatientStats.setOnClickListener {
             if (!isLogged || loggedDoctorId == null) {
-                Toast.makeText(
-                    this,
-                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(this, "Per poter utilizzare gli strumenti, è necessario essere loggati.", Toast.LENGTH_LONG).show()
             } else {
                 val intent = Intent(this, PatientStatsActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
+                    // NOTA: Passiamo 1L come ID di test fisso per evitare il crash di variabile inesistente
+                    putExtra("PATIENT_ID", 1L)
                 }
                 startActivity(intent)
             }

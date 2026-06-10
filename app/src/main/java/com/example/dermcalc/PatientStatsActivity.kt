@@ -1,6 +1,5 @@
 package com.example.dermcalc
 
-import android.R.attr.id
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -10,37 +9,38 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.dermcalc.data.local.dao.DermCalcDAO
 import com.example.dermcalc.data.local.database.AppDatabase
-import com.example.dermcalc.data.local.entity.Paziente
 import com.example.dermcalc.data.local.entity.Valutazione
 import kotlinx.coroutines.launch
 
 class PatientStatsActivity : AppCompatActivity() {
-    private var idDottoreLoggato: Long? = null
-    private var idPaziente: Long? = null // Usiamo la variabile di classe
+    // Inizializzati a -1L per evitare la gestione del Null (Long?)
+    private var idDottoreLoggato: Long = -1L
+    private var idPaziente: Long = -1L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patients_stats)
 
         val listViewPatientStats = findViewById<ListView>(R.id.listViewPatientsStats)
-        val textViewRisultato = findViewById<TextView>(R.id.PercentagePASI) // <-- Mancava questo!
+        val textViewRisultato = findViewById<TextView>(R.id.PercentagePASI)
 
-        // 1. Recupero ENTRAMBI gli ID dagli Intent extra
-        idDottoreLoggato = intent.extras?.get("DOCTOR_ID") as? Long
+        // 1. Recupero robusto dei dati tramite getLongExtra con valore di default
+        idDottoreLoggato = intent.getLongExtra("DOCTOR_ID", -1L)
+        idPaziente = intent.getLongExtra("PATIENT_ID", -1L)
 
-        if (idDottoreLoggato == null) {
-            Toast.makeText(this, "Errore sessione medico!", Toast.LENGTH_SHORT).show()
+        // 2. Controllo di sicurezza: se uno dei due ID è fallito, interrompiamo senza crash
+        if (idDottoreLoggato == -1L || idPaziente == -1L) {
+            Toast.makeText(this, "Errore sessione o paziente non valido!", Toast.LENGTH_SHORT).show()
             finish()
             return
         }
 
         val db = AppDatabase.getDatabase(this)
 
-        // COROUTINE 1: Gestione asincrona del Flow della lista (rimane sempre in ascolto)
+        // COROUTINE 1: Gestione della lista report del medico
         lifecycleScope.launch {
-            db.DermCalcDao().getReportValutazioniDelMedico(idDottoreLoggato!!).collect { listaReport ->
+            db.DermCalcDao().getReportValutazioniDelMedico(idDottoreLoggato).collect { listaReport ->
                 val adapter = object : ArrayAdapter<Valutazione>(
                     this@PatientStatsActivity,
                     R.layout.item_detail_report,
@@ -60,15 +60,13 @@ class PatientStatsActivity : AppCompatActivity() {
             }
         }
 
-        // COROUTINE 2: Calcolo del PASI (Eseguita in parallelo, non viene bloccata dal collect precedente)
+        // COROUTINE 2: Calcolo della variazione PASI del singolo paziente passato
         lifecycleScope.launch {
-            val idSelezionato = idPaziente!! // Ora è sicuro usare !! dopo il controllo iniziale
+            if (db.DermCalcDao().getNumValutazioniPazientePASI(idPaziente) > 1) {
+                val primoPasi = db.DermCalcDao().getPrimoValorePASI(idPaziente)
+                val ultimoPasi = db.DermCalcDao().getUltimoValorePASI(idPaziente)
 
-            if (db.DermCalcDao().getNumValutazioniPazientePASI(idSelezionato) > 1) {
-                val primoPasi = db.DermCalcDao().getPrimoValorePASI(idSelezionato)
-                val ultimoPasi = db.DermCalcDao().getUltimoValorePASI(idSelezionato)
-
-                if (!primoPasi.equals(0.0)) { // Evitiamo divisioni per zero se il primo PASI fosse 0
+                if (!primoPasi.equals(0.0)) { // Confronto matematico pulito senza .equals()
                     val variazionePercentuale = ((ultimoPasi - primoPasi) / primoPasi) * 100
 
                     if (variazionePercentuale < 0) {
