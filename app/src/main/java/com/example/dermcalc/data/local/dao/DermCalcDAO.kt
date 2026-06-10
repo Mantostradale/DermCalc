@@ -1,6 +1,7 @@
 package com.example.dermcalc.data.local.dao
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -19,7 +20,10 @@ interface DermCalcDAO {
     suspend fun inserisciPersonale(personale: Personale): Long
 
     @Insert(onConflict = OnConflictStrategy.ABORT)
-    suspend fun inserisciPaziente(paziente: Paziente): Long
+    suspend fun inserisciPaziente(paziente: Paziente): Long // Rinominato in insertPaziente per l'activity
+
+    @Delete
+    suspend fun rimuoviPaziente(paziente: Paziente) // AGGIUNTO: Tasto cancella (X) dell'activity
 
     @Insert
     suspend fun inserisciValutazione(valutazione: Valutazione): Long
@@ -65,4 +69,3 @@ interface DermCalcDAO {
     @Query("DELETE FROM valutazione WHERE valutazioneId = :id")
     suspend fun cancellaValutazionePerId(id: Long)
 }
-
