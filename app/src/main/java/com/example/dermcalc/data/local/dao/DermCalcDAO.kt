@@ -16,7 +16,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DermCalcDAO {
-    // ABORT: Evita duplicati
+
+    // ABORT: Evita duplicati in caso di conflitto primario
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun inserisciPersonale(personale: Personale): Long
 
@@ -41,11 +42,11 @@ interface DermCalcDAO {
     @Insert
     suspend fun inserisciDatiBSA(datiBsa: DatiBSA)
 
-    // Trova tutte le valutazioni di un specifico paziente
+    // Trova tutte le valutazioni di uno specifico paziente
     @Query("SELECT * FROM valutazione WHERE pazienteIdVisitato = :pazienteId ORDER BY dataValutazione DESC")
     fun getValutazioniDelPaziente(pazienteId: Long): Flow<List<Valutazione>>
 
-    // Trova tutti i pazienti di un specifico responsabile
+    // Trova tutti i pazienti di uno specifico responsabile
     @Query("SELECT * FROM paziente WHERE personaleIdResponsabile = :responsabileId")
     fun getPazientiDelResponsabile(responsabileId: Long): Flow<List<Paziente>>
 
@@ -70,11 +71,29 @@ interface DermCalcDAO {
     @Query("SELECT * FROM dati_bsa WHERE valutazioneId = :id LIMIT 1")
     suspend fun getDettagliBSAPerId(id: Long): DatiBSA?
 
-
     @Query("SELECT * FROM valutazione WHERE personaleIdResponsabile = :medicoId ORDER BY dataValutazione DESC")
     fun getReportValutazioniDelMedico(medicoId: Long): Flow<List<Valutazione>>
 
     @Query("DELETE FROM valutazione WHERE valutazioneId = :id")
     suspend fun cancellaValutazionePerId(id: Long)
 
+    // --- SEZIONE PASI ---
+    @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'PASI' AND pazienteIdVisitato = :id")
+    suspend fun getNumValutazioniPazientePASI(id: Long): Int
+
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'PASI' AND pazienteIdVisitato = :id ORDER BY dataValutazione ASC LIMIT 1")
+    suspend fun getPrimoValorePASI(id: Long): Float
+
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'PASI' AND pazienteIdVisitato = :id ORDER BY dataValutazione DESC LIMIT 1")
+    suspend fun getUltimoValorePASI(id: Long): Float
+
+    // --- SEZIONE EASI, BMI, BSA CORRETTE ---
+    @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'EASI' AND pazienteIdVisitato = :id")
+    suspend fun getNumValutazioniPazienteEASI(id: Long): Int
+
+    @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'BMI' AND pazienteIdVisitato = :id")
+    suspend fun getNumValutazioniPazienteBMI(id: Long): Int
+
+    @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'BSA' AND pazienteIdVisitato = :id")
+    suspend fun getNumValutazioniPazienteBSA(id: Long): Int
 }

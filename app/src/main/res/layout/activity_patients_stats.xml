@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/profileToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:elevation="@dimen/toolbar_elevation"
+        android:paddingTop="@dimen/toolbar_padding_vertical"
+        android:paddingBottom="@dimen/toolbar_padding_vertical"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:navigationContentDescription="@string/nav_back_description">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPatientSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_bottom"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardBackgroundColor="?attr/colorPrimary"
+            app:cardElevation="@dimen/card_elevation_primary"
+            app:rippleColor="?attr/colorOnPrimary">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+                    <ImageView
+                        android:id="@+id/imgPatientIcon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_patient"
+                        app:tint="?attr/colorOnPrimary" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp">
+                        <TextView
+                            android:id="@+id/txtPatientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pasi_patient_not_selected"
+                            android:textColor="?attr/colorOnPrimaryContainer"
+                            android:textSize="14sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinnerPazientiNascosto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="invisible" />
+            </FrameLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <ListView
+                android:id="@+id/listViewPatientsStats"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="12dp"
+                android:clipToPadding="false"
+                android:paddingHorizontal="8dp"
+                android:paddingBottom="16dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/PercentagePASI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

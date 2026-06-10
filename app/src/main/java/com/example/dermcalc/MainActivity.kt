@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btnCalcola = findViewById<Button>(R.id.btnCalcola)
+        val btnPatientStats = findViewById<Button>(R.id.btnPatientStats)
         val imgProfilo = findViewById<ImageView>(R.id.accountCircle)
 
         imgProfilo.setOnClickListener {
@@ -114,6 +115,21 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             } else {
                 val intent = Intent(this, ReportsActivity::class.java).apply {
+                    putExtra("DOCTOR_ID", loggedDoctorId)
+                }
+                startActivity(intent)
+            }
+        }
+
+        btnPatientStats.setOnClickListener {
+            if (!isLogged || loggedDoctorId == null) {
+                Toast.makeText(
+                    this,
+                    "Per poter utilizzare gli strumenti, è necessario essere loggati.",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                val intent = Intent(this, PatientStatsActivity::class.java).apply {
                     putExtra("DOCTOR_ID", loggedDoctorId)
                 }
                 startActivity(intent)

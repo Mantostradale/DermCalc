@@ -161,7 +161,9 @@
                         android:textSize="@dimen/text_size_card_body"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
-                    <Button android:layout_width="wrap_content"
+                    <Button
+                        android:id="@+id/btnPatientStats"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/btn_search_patient"
                         android:textColor="?attr/colorOnTertiary"
