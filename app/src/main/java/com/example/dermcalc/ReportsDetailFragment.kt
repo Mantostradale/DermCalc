@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.dermcalc.data.local.database.AppDatabase
 import kotlinx.coroutines.launch
+import kotlin.Double
 
 class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
 
@@ -69,16 +70,25 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
                         Toast.makeText(requireContext(), "Dati PASI non trovati!", Toast.LENGTH_SHORT).show()
                     }
                 }
-                "BMI", "BSA" -> {
-                    val bio = db.DermCalcDao().getDettagliBMIPerId(idValutazione)
-                    if (bio != null) {
-                        iniettaCardClinica(dynamicContainer, "DATI ANTROPOMETRICI", "Altezza: ${bio.altezza} cm\nPeso: ${bio.peso} kg")
+                "BMI" -> {
+                    val bmi = db.DermCalcDao().getDettagliBMIPerId(idValutazione)
+                    if (bmi != null) {
+                        iniettaCardClinica(dynamicContainer, "DATI BMI", "Altezza: ${bmi.altezza} cm\nPeso: ${bmi.peso} kg")
                     } else {
-                        Toast.makeText(requireContext(), "Dati biometrici non trovati!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Dati BMI non trovati!", Toast.LENGTH_SHORT).show()
                     }
                 }
-                else -> {
-                    iniettaCardClinica(dynamicContainer, "ERRORE", "Tipologia indice sconosciuta o non supportata.")
+                "BSA" -> {
+                    val bsa = db.DermCalcDao().getDettagliBSAPerId(idValutazione)
+                    if (bsa != null) {
+                        iniettaCardClinica(dynamicContainer, "TESTA E COLLO (BSA)", "Estensione: ${bsa.testaCollo}%")
+                        iniettaCardClinica(dynamicContainer, "TRONCO (BSA)", "Anteriore: ${bsa.troncoAnt}% • Posteriore: ${bsa.troncoPost}%")
+                        iniettaCardClinica(dynamicContainer, "ARTI SUPERIORI (BSA)", "Destro: ${bsa.artoSupDx}% • Sinistro: ${bsa.artoSupSx}%")
+                        iniettaCardClinica(dynamicContainer, "ARTI INFERIORI (BSA)", "Destro: ${bsa.artoInfDx}% • Sinistro: ${bsa.artoInfSx}%")
+                        iniettaCardClinica(dynamicContainer, "GENITALI (BSA)", "Estensione: ${bsa.genitali}%")
+                    } else {
+                        Toast.makeText(requireContext(), "Dati BSA non trovati!", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }

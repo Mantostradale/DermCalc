@@ -33,10 +33,8 @@ class IndexSelectionFragment : Fragment() {
             findNavController().navigate(R.id.action_indexSelection_to_bmi)
         }
 
-        /* Navigazione verso BSA
         view.findViewById<Button>(R.id.btnBsa).setOnClickListener {
             findNavController().navigate(R.id.action_indexSelection_to_bsa)
         }
-        */
     }
 }

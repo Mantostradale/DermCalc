@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_indexSelection_to_patients"
             app:destination="@id/patientsFragment" />
+        <action
+            android:id="@+id/action_indexSelection_to_bsa"
+            app:destination="@id/BSAFragment" />
     </fragment>
 
     <fragment
@@ -45,6 +48,12 @@
         android:name="com.example.dermcalc.BMIFragment"
         android:label="Calcolatore BMI"
         tools:layout="@layout/fragment_index_bmi" />
+
+    <fragment
+        android:id="@+id/BSAFragment"
+        android:name="com.example.dermcalc.BSAFragment"
+        android:label="Calcolatore BSA"
+        tools:layout="@layout/fragment_index_bsa" />
 
     <fragment
         android:id="@+id/reportsFragment"

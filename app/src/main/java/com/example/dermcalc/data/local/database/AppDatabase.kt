@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.dermcalc.data.local.dao.DermCalcDAO
 import com.example.dermcalc.data.local.entity.DatiBMI
+import com.example.dermcalc.data.local.entity.DatiBSA
 import com.example.dermcalc.data.local.entity.DatiEASI
 import com.example.dermcalc.data.local.entity.DatiPASI
 import com.example.dermcalc.data.local.entity.Paziente
@@ -18,7 +19,7 @@ import kotlinx.coroutines.launch
 
 @Database(
     entities = [Personale::class, Paziente::class, Valutazione::class,
-        DatiPASI::class, DatiEASI::class, DatiBMI::class],
+        DatiPASI::class, DatiEASI::class, DatiBMI::class, DatiBSA::class],
     version = 1,
     exportSchema = false
 )
