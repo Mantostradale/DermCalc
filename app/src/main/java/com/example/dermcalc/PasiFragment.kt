@@ -127,8 +127,8 @@ class PasiFragment : Fragment(R.layout.fragment_index_pasi) {
 
             txtPasiResultSeverity.text = when {
                 totalePasi == 0.0 -> "Assente"
-                totalePasi < 10.0 -> "Lieve"
-                totalePasi <= 20.0 -> "Moderato"
+                totalePasi < 5.0 -> "Lieve"
+                totalePasi <= 10.0 -> "Moderato"
                 else -> "Grave"
             }
         }
