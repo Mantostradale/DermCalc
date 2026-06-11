@@ -12,7 +12,7 @@
     <string name="title_bsa">BSA Calculator</string>
     <string name="title_indices">Index Calculator</string>
     <string name="title_patient_stats">Patient Statistics</string>
-    <string name="desc_patient_stats">View the index history for each patient, with graphs showing trends over time.</string>
+    <string name="desc_patient_stats">View the index history for each patient, with percentage showing trends over time.</string>
     <string name="btn_start_calculation">Start Calculation</string>
     <string name="btn_search_patient">Search Patient</string>
     <string name="nav_home">Home</string>
@@ -24,6 +24,41 @@
     <string name="desc_bmi">Body Mass Index</string>
     <string name="desc_bsa">Percentage of body surface area affected by a condition</string>
     <string name="desc_indices">Calculate clinical indices quickly. Enter the values and get the result straight away.</string>
+
+    <!-- Login -->
+    <string name="login_btn_text">Login</string>
+
+    <!-- Profile -->
+    <string name="profile_toolbar_title">Reserved Area</string>
+    <string name="profile_surname_label">Surname:</string>
+    <string name="profile_loading_text">Loading...</string>
+    <string name="profile_btn_logout">Log Out Account</string>
+
+    <!-- Pazienti -->
+    <string name="patients_list_title">Assigned Patients</string>
+    <string name="btn_add_patient">+ Add New Patient</string>
+
+    <string name="add_patient_title">New Patient</string>
+    <string name="hint_name">First Name</string>
+    <string name="hint_surname">Last Name</string>
+    <string name="hint_fiscal_code">Tax Code</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+    <string name="desc_delete_patient">Delete patient</string>
+
+    <!-- Reports -->
+    <string name="reports_history_title">Medical Reports History</string>
+    <string name="report_detail_title">Report Details</string>
+    <string name="btn_delete_assessment">Delete Assessment</string>
+    <string name="placeholder_section_title">SECTION TITLE</string>
+    <string name="placeholder_clinical_data">Clinical data</string>
+
+    <!-- Statistics -->
+    <string name="stats_trend_title">Index Trend</string>
+    <string name="stats_pasi_placeholder">PASI: --</string>
+    <string name="stats_easi_placeholder">EASI: --</string>
+    <string name="stats_bmi_placeholder">BMI: --</string>
+    <string name="stats_bsa_placeholder">BSA: --</string>
 
     <!-- Index EASI Strings-->
     <string name="easi_title">EASI Score Calculator</string>
@@ -42,6 +77,7 @@
     <string name="easi_param_induration">Induration (Thickness)</string>
     <string name="easi_param_excoriation">Excoriation (Scratching)</string>
     <string name="easi_param_desquamation">Desquamation (Scaling)</string>
+    <string name="easi_param_lichenification">Lichenification</string>
     <string name="easi_param_area">Affected Body Area</string>
 
     <string name="easi_result_score_label">EASI Total Score</string>
@@ -63,5 +99,30 @@
     <string name="pasi_description">Select the severity parameters (0-4) and the involved area (0-6) for each body region. Check \'Exempt Zone\' if the area is not affected.</string>
     <string name="pasi_patient_not_selected">Select a patient to calculate the PASI score</string>
     <string name="pasi_result_score_label">Total PASI Score</string>
+
+    <!-- BMI Index -->
+    <string name="bmi_calc_title">BMI Calculator</string>
+    <string name="bmi_hint_weight">Weight (kg)</string>
+    <string name="bmi_hint_height">Height (cm)</string>
+    <string name="bmi_result_score_label">BMI Score</string>
+    <string name="bmi_result_severity_label">Category</string>
+    <string name="bmi_placeholder_value">BMI: --</string>
+    <string name="bmi_placeholder_status">Status: --</string>
+    <string name="bmi_placeholder_default">--</string>
+
+    <!-- BSA Index -->
+    <string name="bsa_section_area">Disease Extent by Area</string>
+    <string name="bsa_param_head_neck">Head and Neck (Max 9%):</string>
+    <string name="bsa_param_arm_right">Right Upper Limb (Max 9%):</string>
+    <string name="bsa_param_arm_left">Left Upper Limb (Max 9%):</string>
+    <string name="bsa_param_trunk_ant">Anterior Trunk (Max 18%):</string>
+    <string name="bsa_param_trunk_post">Posterior Trunk (Max 18%):</string>
+    <string name="bsa_param_leg_right">Right Lower Limb (Max 18%):</string>
+    <string name="bsa_param_leg_left">Left Lower Limb (Max 18%):</string>
+    <string name="bsa_param_genitals">Genitals (Max 1%):</string>
+    <string name="bsa_result_score_label">BSA Score</string>
+    <string name="bsa_result_severity_label">Severity</string>
+    <string name="bsa_result_score_default">0.0%</string>
+    <string name="bsa_result_severity_default">-</string>
 
 </resources>

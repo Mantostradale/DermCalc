@@ -43,4 +43,53 @@
 
     <dimen name="button_corner_radius">100dp</dimen>
 
+    <!-- Login -->
+    <dimen name="title_margin_bottom">32dp</dimen>
+    <dimen name="input_margin_bottom">24dp</dimen>
+
+    <!-- Profile -->
+    <dimen name="toolbar_title_margin_end">20dp</dimen>
+    <dimen name="profile_image_size">96dp</dimen>
+
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="margin_medium">24dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+
+    <!-- Pazienti -->
+    <dimen name="text_size_subtitle">20sp</dimen>
+    <dimen name="text_size_button">16sp</dimen>
+    <dimen name="text_size_list_item">16sp</dimen>
+    <dimen name="icon_size_standard">40dp</dimen>
+    <dimen name="margin_tiny">8dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
+
+    <!-- Referti -->
+    <dimen name="text_size_button_small">14sp</dimen>
+    <dimen name="text_size_list_title">15sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="padding_body">14dp</dimen>
+
+    <!-- Statistiche -->
+    <dimen name="text_size_stats_value">13sp</dimen>
+    <dimen name="margin_micro">2dp</dimen>
+
+    <!-- Pasi/Easi-->
+    <dimen name="spinner_height">48dp</dimen>
+    <dimen name="text_size_section_header">18sp</dimen>
+    <dimen name="text_size_result_label">14sp</dimen>
+    <dimen name="text_size_result_value">32sp</dimen>
+    <dimen name="margin_tiny_vertical">4dp</dimen>
+
+    <!-- BMI -->
+    <dimen name="text_size_bmi_value">20sp</dimen>
+
+    <dimen name="card_corner_radius_small">12dp</dimen>
+    <dimen name="card_stroke_width_small">1dp</dimen>
+
+
+    <dimen name="list_divider_height">12dp</dimen>
+    <dimen name="button_height_large">55dp</dimen>
+    <dimen name="button_corner_radius_small">8dp</dimen>
+
+
 </resources>

@@ -14,7 +14,9 @@
         <item name="colorSecondaryContainer">@color/light_accent_blue_10</item>
         <item name="colorOutline">@color/light_accent_blue_20</item>
         <item name="colorTertiaryContainer">@color/light_white_overlay_12</item>
-        <item name="colorOnPrimaryContainer">@color/light_white_overlay_60</item>
+        <item name="colorOnPrimaryContainer">@color/light_on_primary_muted</item>
+        <item name="colorError">@color/light_error</item>
+        <item name="colorOnError">@color/white</item>
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:fitsSystemWindows">true</item>
     </style>

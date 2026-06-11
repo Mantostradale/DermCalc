@@ -34,14 +34,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/card_title_margin_top"
                     android:layout_marginBottom="@dimen/card_title_margin_bottom"
-                    android:text="Indice BSA"
+                    android:text="@string/title_bsa"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="@dimen/text_size_card_title"
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Calcolo della superficie corporea interessata (Body Surface Area) basato sulla scomposizione anatomica standard dei pesi percentuali."
+                    android:text="@string/desc_bsa"
                     android:textSize="@dimen/text_size_card_body"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:layout_marginBottom="@dimen/card_body_margin_bottom"/>
@@ -67,11 +67,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/margin_standard">
                     <ImageView
                         android:id="@+id/imgPatientIcon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/icon_size_nav"
+                        android:layout_height="@dimen/icon_size_nav"
                         android:src="@drawable/ic_patient"
                         app:tint="?attr/colorOnPrimary" />
                     <LinearLayout
@@ -79,16 +79,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp">
+                        android:layout_marginStart="@dimen/margin_standard"
+                        android:layout_marginEnd="@dimen/margin_standard">
                         <TextView
                             android:id="@+id/txtPatientName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/easi_patient_not_selected"
                             android:textColor="?attr/colorOnPrimaryContainer"
-                            android:textSize="14sp"
-                            android:layout_marginTop="2dp" />
+                            android:textSize="@dimen/text_size_body"
+                            android:layout_marginTop="@dimen/margin_micro" />
                     </LinearLayout>
                 </LinearLayout>
                 <Spinner
@@ -118,13 +118,13 @@
                     android:background="?attr/colorPrimary"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/margin_small">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Estensione Patologia per Area"
+                        android:text="@string/bsa_section_area"
                         android:textColor="?attr/colorOnPrimary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_section_header"
                         android:textStyle="bold"/>
                 </LinearLayout>
 
@@ -135,36 +135,36 @@
                     android:padding="@dimen/card_padding_small">
 
                     <!-- Testa e Collo -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Testa e Collo (Max 9%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaTesta" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_head_neck" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaTesta" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Arto Superiore Destro -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Superiore DX (Max 9%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoSupDx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_arm_right" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoSupDx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Arto Superiore Sinistro -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Superiore SX (Max 9%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoSupSx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_arm_left" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoSupSx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Tronco Anteriore -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tronco Anteriore (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaTroncoAnt" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_trunk_ant" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaTroncoAnt" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Tronco Posteriore -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tronco Posteriore (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaTroncoPost" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_trunk_post" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaTroncoPost" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Arto Inferiore Destro -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Inferiore DX (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoInfDx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_leg_right" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoInfDx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Arto Inferiore Sinistro -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Arto Inferiore SX (Max 18%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoInfSx" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_leg_left" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoInfSx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
 
                     <!-- Genitali -->
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Genitali (Max 1%):" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerBsaGenitali" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_genitals" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerBsaGenitali" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -189,7 +189,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:layout_marginTop="@dimen/card_title_margin_top"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="@dimen/margin_tiny">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -199,16 +199,15 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Punteggio BSA"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:alpha="0.8"/>
+                            android:text="@string/bsa_result_score_label"
+                            android:textSize="@dimen/text_size_result_label"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
                         <TextView
                             android:id="@+id/txtBsaResultScore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0.0%"
-                            android:textSize="32sp"
+                            android:text="@string/bsa_result_score_default"
+                            android:textSize="@dimen/text_size_result_value"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnPrimary"/>
                     </LinearLayout>
@@ -221,16 +220,15 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Severità"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:alpha="0.8"/>
+                            android:text="@string/bsa_result_severity_label"
+                            android:textSize="@dimen/text_size_result_label"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
                         <TextView
                             android:id="@+id/txtBsaResultSeverity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="-"
-                            android:textSize="32sp"
+                            android:text="@string/bsa_result_severity_default"
+                            android:textSize="@dimen/text_size_result_value"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnPrimary"/>
                     </LinearLayout>
@@ -243,7 +241,7 @@
                     android:textColor="?attr/colorOnTertiary"
                     android:backgroundTint="?attr/colorTertiary"
                     app:cornerRadius="@dimen/button_corner_radius"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="@dimen/margin_tiny"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -255,17 +253,17 @@
             android:layout_marginStart="@dimen/nav_padding_horizontal"
             android:layout_marginEnd="@dimen/nav_padding_horizontal"
             android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
+            android:paddingTop="@dimen/padding_body"
+            android:paddingBottom="@dimen/padding_body"
             android:backgroundTint="?attr/colorSecondary"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_file_save"
-            app:iconPadding="12dp"
+            app:iconPadding="@dimen/margin_small"
             app:iconTint="?attr/colorOnPrimary"
             app:iconGravity="textStart"
             android:text="@string/easi_btn_save"
             android:textColor="?attr/colorOnPrimary"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_button"
             android:textStyle="bold"
             android:textAllCaps="false" />
     </LinearLayout>

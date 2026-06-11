@@ -20,11 +20,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Area Riservata"
+            android:text="@string/profile_toolbar_title"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="@dimen/text_size_welcome"
             android:layout_gravity="end"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="@dimen/toolbar_title_margin_end"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -37,17 +37,17 @@
         android:padding="@dimen/screen_padding">
 
         <ImageView
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="@dimen/profile_image_size"
+            android:layout_height="@dimen/profile_image_size"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:src="@drawable/ic_account_circle"
             app:tint="?attr/colorPrimary" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="@dimen/margin_large"
             app:cardCornerRadius="@dimen/card_corner_radius"
             app:cardBackgroundColor="?attr/colorSurface"
             app:strokeColor="?attr/colorOutline"
@@ -63,7 +63,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cognome:"
+                    android:text="@string/profile_surname_label"
                     android:textSize="@dimen/text_size_card_body"
                     android:textColor="?attr/colorOnSurfaceVariant" />
 
@@ -71,16 +71,16 @@
                     android:id="@+id/txtCognome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caricamento..."
+                    android:text="@string/profile_loading_text"
                     android:textSize="@dimen/text_size_card_title"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnSurface"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="@dimen/margin_standard" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Username account:"
+                    android:text="@string/profile_username_label"
                     android:textSize="@dimen/text_size_card_body"
                     android:textColor="?attr/colorOnSurfaceVariant" />
 
@@ -88,7 +88,7 @@
                     android:id="@+id/txtUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Caricamento..."
+                    android:text="@string/profile_loading_text"
                     android:textSize="@dimen/text_size_card_title"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnSurface" />
@@ -100,11 +100,11 @@
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Disconnetti Account"
+            android:text="@string/profile_btn_logout"
             android:textColor="?attr/colorOnSecondary"
             android:backgroundTint="?attr/colorSecondary"
             app:cornerRadius="@dimen/button_corner_radius"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="@dimen/margin_standard"/>
 
     </LinearLayout>
 </LinearLayout>

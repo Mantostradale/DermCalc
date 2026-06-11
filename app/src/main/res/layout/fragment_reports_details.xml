@@ -16,17 +16,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/margin_standard">
 
             <TextView
                 android:id="@+id/txtDetailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dettaglio Referto"
-                android:textSize="24sp"
+                android:text="@string/report_detail_title"
+                android:textSize="@dimen/text_size_welcome"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSurface"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="@dimen/margin_standard"/>
 
             <LinearLayout
                 android:id="@+id/layoutDynamicContent"
@@ -41,19 +41,19 @@
         android:id="@+id/btnDeleteAssessment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
-        android:backgroundTint="#B3261E"
+        android:layout_marginHorizontal="@dimen/margin_standard"
+        android:layout_marginBottom="@dimen/margin_standard"
+        android:paddingTop="@dimen/margin_small"
+        android:paddingBottom="@dimen/margin_small"
+        android:backgroundTint="?attr/colorError"
         app:cornerRadius="@dimen/button_corner_radius"
         app:icon="@drawable/ic_delete"
-        app:iconPadding="12dp"
-        app:iconTint="@android:color/white"
+        app:iconPadding="@dimen/margin_small"
+        app:iconTint="?attr/colorOnError"
         app:iconGravity="textStart"
-        android:text="Elimina Valutazione"
-        android:textColor="@android:color/white"
-        android:textSize="14sp"
+        android:text="@string/btn_delete_assessment"
+        android:textColor="?attr/colorOnError"
+        android:textSize="@dimen/text_size_button_small"
         android:textStyle="bold"
         android:textAllCaps="false" />
 

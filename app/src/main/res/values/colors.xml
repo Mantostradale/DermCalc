@@ -16,6 +16,7 @@
     <color name="light_on_primary_muted">#A6FFFFFF</color>
     <color name="light_white_overlay_12">#1FFFFFFF</color>
     <color name="light_white_overlay_60">#99FFFFFF</color>
+    <color name="light_error">#FFB00020</color>
 
     <!-- Dark Theme -->
     <color name="dark_background">#FF1A1C1E</color>

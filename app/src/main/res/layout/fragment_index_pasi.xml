@@ -67,11 +67,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/margin_standard">
                     <ImageView
                         android:id="@+id/imgPatientIcon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/icon_size_nav"
+                        android:layout_height="@dimen/icon_size_nav"
                         android:src="@drawable/ic_patient"
                         app:tint="?attr/colorOnPrimary" />
                     <LinearLayout
@@ -79,16 +79,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp">
+                        android:layout_marginStart="@dimen/margin_standard"
+                        android:layout_marginEnd="@dimen/margin_standard">
                         <TextView
                             android:id="@+id/txtPatientName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/pasi_patient_not_selected"
                             android:textColor="?attr/colorOnPrimaryContainer"
-                            android:textSize="14sp"
-                            android:layout_marginTop="2dp" />
+                            android:textSize="@dimen/text_size_body"
+                            android:layout_marginTop="@dimen/margin_micro" />
                     </LinearLayout>
                 </LinearLayout>
                 <Spinner
@@ -117,14 +117,14 @@
                     android:background="?attr/colorPrimary"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/margin_small">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/easi_section_head"
                         android:textColor="?attr/colorOnPrimary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_section_header"
                         android:textStyle="bold" />
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/checkHeadExempt"
@@ -140,14 +140,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="@dimen/card_padding_small">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerHeadArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerHeadErythema" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerHeadInduration" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerHeadDesquamation" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerHeadArea" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -170,14 +170,14 @@
                     android:background="?attr/colorPrimary"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/margin_small">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/easi_section_trunk"
                         android:textColor="?attr/colorOnPrimary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_section_header"
                         android:textStyle="bold" />
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/checkTrunkExempt"
@@ -193,14 +193,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="@dimen/card_padding_small">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerTrunkArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerTrunkErythema" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerTrunkInduration" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerTrunkDesquamation" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerTrunkArea" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -223,14 +223,14 @@
                     android:background="?attr/colorPrimary"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/margin_small">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/easi_section_upper"
                         android:textColor="?attr/colorOnPrimary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_section_header"
                         android:textStyle="bold" />
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/checkUpperExempt"
@@ -246,14 +246,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="@dimen/card_padding_small">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerUpperArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerUpperErythema" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerUpperInduration" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerUpperDesquamation" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerUpperArea" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -276,14 +276,14 @@
                     android:background="?attr/colorPrimary"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/margin_small">
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/easi_section_lower"
                         android:textColor="?attr/colorOnPrimary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_section_header"
                         android:textStyle="bold" />
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/checkLowerExempt"
@@ -299,14 +299,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="@dimen/card_padding_small">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerErythema" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerInduration" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerDesquamation" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginBottom="12dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="4dp"/>
-                    <Spinner android:id="@+id/spinnerLowerArea" android:layout_width="match_parent" android:layout_height="48dp" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_erythema" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerLowerErythema" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_induration" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerLowerInduration" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_desquamation" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerLowerDesquamation" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/pasi_severity_scores"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/easi_param_area" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
+                    <Spinner android:id="@+id/spinnerLowerArea" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -330,7 +330,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2"
                     android:layout_marginTop="@dimen/card_title_margin_top"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="@dimen/margin_tiny">
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -341,15 +341,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/pasi_result_score_label"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:alpha="0.8"/>
+                            android:textSize="@dimen/text_size_result_label"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
                         <TextView
                             android:id="@+id/txtPasiResultScore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/easi_result_score_default"
-                            android:textSize="32sp"
+                            android:textSize="@dimen/text_size_result_value"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnPrimary"/>
                     </LinearLayout>
@@ -363,15 +362,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/easi_result_severity_label"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:alpha="0.8"/>
+                            android:textSize="@dimen/text_size_result_label"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
                         <TextView
                             android:id="@+id/txtPasiResultSeverity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/easi_result_severity_default"
-                            android:textSize="32sp"
+                            android:textSize="@dimen/text_size_result_value"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnPrimary"/>
                     </LinearLayout>
@@ -384,7 +382,7 @@
                     android:textColor="?attr/colorOnTertiary"
                     android:backgroundTint="?attr/colorTertiary"
                     app:cornerRadius="@dimen/button_corner_radius"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="@dimen/margin_tiny"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -395,17 +393,17 @@
             android:layout_marginStart="@dimen/nav_padding_horizontal"
             android:layout_marginEnd="@dimen/nav_padding_horizontal"
             android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
+            android:paddingTop="@dimen/padding_body"
+            android:paddingBottom="@dimen/padding_body"
             android:backgroundTint="?attr/colorSecondary"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_file_save"
-            app:iconPadding="12dp"
+            app:iconPadding="@dimen/margin_small"
             app:iconTint="?attr/colorOnPrimary"
             app:iconGravity="textStart"
             android:text="@string/easi_btn_save"
             android:textColor="?attr/colorOnPrimary"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_button"
             android:textStyle="bold"
             android:textAllCaps="false" />
     </LinearLayout>

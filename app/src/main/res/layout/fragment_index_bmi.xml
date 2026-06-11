@@ -67,11 +67,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/margin_standard">
                     <ImageView
                         android:id="@+id/imgPatientIcon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/icon_size_nav"
+                        android:layout_height="@dimen/icon_size_nav"
                         android:src="@drawable/ic_patient"
                         app:tint="?attr/colorOnPrimary" />
                     <LinearLayout
@@ -79,16 +79,16 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp">
+                        android:layout_marginStart="@dimen/margin_standard"
+                        android:layout_marginEnd="@dimen/margin_standard">
                         <TextView
                             android:id="@+id/txtPatientName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/pasi_patient_not_selected"
+                            android:text="@string/easi_patient_not_selected"
                             android:textColor="?attr/colorOnPrimaryContainer"
-                            android:textSize="14sp"
-                            android:layout_marginTop="2dp" />
+                            android:textSize="@dimen/text_size_body"
+                            android:layout_marginTop="@dimen/margin_micro" />
                     </LinearLayout>
                 </LinearLayout>
                 <Spinner
@@ -114,26 +114,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp"
+                android:padding="@dimen/margin_standard"
                 android:gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calcolo dell'Indice"
+                    android:text="@string/bmi_calc_title"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="@dimen/text_size_card_title"
                     android:textStyle="bold"
                     android:layout_gravity="start"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="@dimen/margin_standard" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Peso (kg)"
+                    android:hint="@string/bmi_hint_weight"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="@dimen/margin_small">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etWeight"
@@ -146,9 +146,9 @@
                     android:id="@+id/tilHeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Altezza (cm)"
+                    android:hint="@string/bmi_hint_height"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginBottom="@dimen/margin_standard">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etHeight"
@@ -163,27 +163,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:padding="8dp"
+                    android:padding="@dimen/margin_tiny"
                     android:visibility="gone"
-                    android:layout_marginBottom="12dp">
+                    android:layout_marginBottom="@dimen/margin_small">
 
                     <TextView
                         android:id="@+id/txtBmiValue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BMI: --"
+                        android:text="@string/bmi_placeholder_value"
                         android:textColor="?attr/colorOnSurface"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/text_size_bmi_value"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtBmiStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Stato: --"
+                        android:text="@string/bmi_placeholder_status"
                         android:textColor="?attr/colorOnSurfaceVariant"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
+                        android:textSize="@dimen/text_size_body"
+                        android:layout_marginTop="@dimen/margin_micro" />
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
@@ -221,16 +221,15 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Punteggio BMI"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:alpha="0.8"/>
+                            android:text="@string/bmi_result_score_label"
+                            android:textSize="@dimen/text_size_result_label"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
                         <TextView
                             android:id="@+id/txtBmiResultScore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="--"
-                            android:textSize="32sp"
+                            android:text="@string/bmi_placeholder_default"
+                            android:textSize="@dimen/text_size_result_value"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnPrimary"/>
                     </LinearLayout>
@@ -244,30 +243,29 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Categoria"
-                            android:textSize="14sp"
-                            android:textColor="?attr/colorOnPrimary"
-                            android:alpha="0.8"/>
+                            android:text="@string/bmi_result_severity_label"
+                            android:textSize="@dimen/text_size_result_label"
+                            android:textColor="?attr/colorOnPrimaryContainer" />
                         <TextView
                             android:id="@+id/txtBmiResultSeverity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="--"
-                            android:textSize="32sp"
+                            android:text="@string/bmi_placeholder_default"
+                            android:textSize="@dimen/text_size_result_value"
                             android:textStyle="bold"
                             android:textColor="?attr/colorOnPrimary"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <Button
-                android:id="@+id/btnCalculateBmi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/easi_btn_calculate"
-                android:textColor="?attr/colorOnTertiary"
-                android:backgroundTint="?attr/colorTertiary"
-                app:cornerRadius="@dimen/button_corner_radius"
-                android:layout_marginBottom="8dp"/>
+                    android:id="@+id/btnCalculateBmi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/easi_btn_calculate"
+                    android:textColor="?attr/colorOnTertiary"
+                    android:backgroundTint="?attr/colorTertiary"
+                    app:cornerRadius="@dimen/button_corner_radius"
+                    android:layout_marginBottom="@dimen/margin_tiny"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -278,17 +276,17 @@
             android:layout_marginStart="@dimen/nav_padding_horizontal"
             android:layout_marginEnd="@dimen/nav_padding_horizontal"
             android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
-            android:paddingTop="14dp"
-            android:paddingBottom="14dp"
+            android:paddingTop="@dimen/padding_body"
+            android:paddingBottom="@dimen/padding_body"
             android:backgroundTint="?attr/colorSecondary"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_file_save"
-            app:iconPadding="12dp"
+            app:iconPadding="@dimen/margin_small"
             app:iconTint="?attr/colorOnPrimary"
             app:iconGravity="textStart"
             android:text="@string/easi_btn_save"
             android:textColor="?attr/colorOnPrimary"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_button"
             android:textStyle="bold"
             android:textAllCaps="false" />
     </LinearLayout>

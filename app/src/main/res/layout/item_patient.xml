@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="@dimen/margin_standard">
 
     <TextView
         android:id="@+id/txtDatiPaziente"
@@ -11,19 +11,19 @@
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@id/btnEliminaPaziente"
         android:layout_centerInParent="true"
-        android:textSize="16sp"
+        android:textSize="@dimen/text_size_list_item"
         android:textColor="?attr/colorOnSurface" />
 
     <ImageView
         android:id="@+id/btnEliminaPaziente"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/icon_size_standard"
+        android:layout_height="@dimen/icon_size_standard"
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
-        android:padding="8dp"
+        android:padding="@dimen/margin_tiny"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/ic_delete"
-        android:contentDescription="Elimina paziente"
+        android:contentDescription="@string/desc_delete_patient"
         android:focusable="false"
         android:clickable="true" />
 
