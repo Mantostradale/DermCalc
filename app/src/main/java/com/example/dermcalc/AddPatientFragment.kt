@@ -17,9 +17,8 @@ class AddPatientFragment : Fragment(R.layout.fragment_add_patient) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Recupero dinamico dall'activity senza passare per gli argomenti del NavGraph
         val activityGuscio = activity as? PatientsActivity
-        val idDottore = activityGuscio?.idDottoreLoggato ?: -1L
+        val idDottore: Long? = activityGuscio?.idDottoreLoggato
 
         val edtNome = view.findViewById<EditText>(R.id.edtNome)
         val edtCognome = view.findViewById<EditText>(R.id.edtCognome)
@@ -40,7 +39,7 @@ class AddPatientFragment : Fragment(R.layout.fragment_add_patient) {
 
             if (nome.isEmpty() || cognome.isEmpty() || cf.isEmpty()) {
                 Toast.makeText(requireContext(), "Compila tutti i campi", Toast.LENGTH_SHORT).show()
-            } else if (idDottore == -1L) {
+            } else if (idDottore == null) {
                 Toast.makeText(requireContext(), "Errore: Sessione medico non valida", Toast.LENGTH_SHORT).show()
             } else {
                 viewLifecycleOwner.lifecycleScope.launch {

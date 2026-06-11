@@ -7,7 +7,7 @@
     android:background="?attr/colorOnBackground">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/profileToolbar"
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"

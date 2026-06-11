@@ -16,9 +16,11 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
 
     companion object {
         private const val KEY_VAL_ID = "VALUTAZIONE_ID"
+
         private const val KEY_TYPE = "TIPOLOGIA_INDICE"
 
-        fun newInstance(valutazioneId: Long, tipologiaIndice: String): ReportsDetailFragment {
+
+        fun newInstance(valutazioneId: Long, tipologiaIndice: String, nome: String, cognome: String): ReportsDetailFragment {
             val fragment = ReportsDetailFragment()
             fragment.arguments = Bundle().apply {
                 putLong(KEY_VAL_ID, valutazioneId)
@@ -42,7 +44,6 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
 
         val db = AppDatabase.getDatabase(requireContext())
 
-        // 1. Logica di popolamento delle Card cliniche
         viewLifecycleOwner.lifecycleScope.launch {
             dynamicContainer.removeAllViews()
 
@@ -59,7 +60,6 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
                     }
                 }
                 "PASI" -> {
-                    // 🚀 Recupero dei dati reali PASI dal DB (Assicurati di avere questo metodo nel DAO, es: getDettagliPasiPerId)
                     val dettagli = db.DermCalcDao().getDettagliPasiPerId(idValutazione)
                     if (dettagli != null) {
                         iniettaCardClinica(dynamicContainer, "TESTA (PASI)", "Eritema: ${dettagli.eTesta} • Infiltrazione: ${dettagli.iTesta}\nDesquamazione: ${dettagli.dTesta}\nArea: ${convertiArea(dettagli.aTesta)}")
@@ -93,7 +93,6 @@ class ReportsDetailFragment : Fragment(R.layout.fragment_reports_details) {
             }
         }
 
-        // 2. Logica del bottone Elimina
         btnDeleteAssessment.setOnClickListener {
             viewLifecycleOwner.lifecycleScope.launch {
                 db.DermCalcDao().cancellaValutazionePerId(idValutazione)

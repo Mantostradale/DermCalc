@@ -33,7 +33,7 @@ class ReportsActivity : AppCompatActivity() {
 
         navController.graph = grafico
 
-        val toolbar = findViewById<Toolbar>(R.id.profileToolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolBar)
         toolbar.setNavigationOnClickListener {
             if (!navController.navigateUp()) {
                 finish()

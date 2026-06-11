@@ -117,4 +117,10 @@ interface DermCalcDAO {
 
     @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'BSA' AND pazienteIdVisitato = :id ORDER BY dataValutazione DESC LIMIT 1")
     suspend fun getUltimoValoreBSA(id: Long): Double? // <- Aggiunto ?
+
+    @Query("SELECT nome FROM Paziente WHERE pazienteId = :id")
+    suspend fun getNomeByIdPaziente(id: Long): String?
+
+    @Query("SELECT cognome FROM Paziente WHERE pazienteId = :id")
+    suspend fun getCognomeByIdPaziente(id: Long): String?
 }

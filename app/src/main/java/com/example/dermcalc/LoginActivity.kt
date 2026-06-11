@@ -21,8 +21,9 @@ class LoginActivity : AppCompatActivity() {
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
 
-        val toolbar = findViewById<Toolbar>(R.id.profileToolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolBar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val db = AppDatabase.getDatabase(this)
 

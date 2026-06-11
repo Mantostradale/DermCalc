@@ -92,7 +92,7 @@ class BMIFragment : Fragment(R.layout.fragment_index_bmi) {
             if (altezzaMetri == 0.0) return@setOnClickListener
 
             val bmi = peso / (altezzaMetri * altezzaMetri)
-            val formattedScore = String.format(Locale.US, "%.1f", bmi)
+            val formattedScore = String.format(Locale.US, "%.1f", bmi) //aggiunge i decimali a un numero intero
             punteggioFinaleCalcolato = formattedScore.toDouble()
 
             txtBmiResultScore.text = formattedScore

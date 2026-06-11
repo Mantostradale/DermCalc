@@ -27,6 +27,19 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
         viewLifecycleOwner.lifecycleScope.launch {
             db.DermCalcDao().getReportValutazioniDelMedico(idDottore).collect { listaReport ->
 
+                val mappaPazienti = HashMap<Long, String>()
+
+                for (report in listaReport) {
+                    val idPaziente = report.pazienteIdVisitato
+
+                    if (!mappaPazienti.containsKey(idPaziente)) {
+                        val nome = db.DermCalcDao().getNomeByIdPaziente(idPaziente) ?: ""
+                        val cognome = db.DermCalcDao().getCognomeByIdPaziente(idPaziente) ?: ""
+
+                        mappaPazienti[idPaziente] = "$nome $cognome"
+                    }
+                }
+
                 val adapter = object : ArrayAdapter<Valutazione>(
                     requireContext(),
                     R.layout.item_detail_report,
@@ -36,7 +49,10 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
                         val rowView = convertView ?: layoutInflater.inflate(R.layout.item_detail_report, parent, false)
                         val report = getItem(position)!!
 
-                        rowView.findViewById<TextView>(R.id.txtSectionTitle).text = "Paziente ID: #${report.pazienteIdVisitato}"
+                        // Recuperiamo nome e cognome dalla HashMap
+                        val nomeCognome = mappaPazienti[report.pazienteIdVisitato] ?: ""
+
+                        rowView.findViewById<TextView>(R.id.txtSectionTitle).text = "Paziente ID: #${report.pazienteIdVisitato}, $nomeCognome"
                         rowView.findViewById<TextView>(R.id.txtSectionBody).text = "Indice: ${report.tipologiaIndice} • Punteggio: ${report.punteggioFinale}\nData: ${report.dataValutazione}"
 
                         return rowView
@@ -46,13 +62,13 @@ class ReportsFragment : Fragment(R.layout.fragment_reports) {
             }
         }
 
+
         listViewReports.setOnItemClickListener { parent, _, position, _ ->
             val report = parent.getItemAtPosition(position) as Valutazione
             val argomenti = Bundle().apply {
                 putLong("VALUTAZIONE_ID", report.valutazioneId)
                 putString("TIPOLOGIA_INDICE", report.tipologiaIndice)
             }
-
             findNavController().navigate(R.id.action_reports_to_detail, argomenti)
         }
     }

@@ -1,59 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/margin_medium">
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_medium"
+    android:background="?android:attr/windowBackground">
 
     <TextView
+        android:id="@+id/txtTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_patient_title"
         android:textSize="@dimen/text_size_subtitle"
         android:textStyle="bold"
+        android:layout_alignParentTop="true"
         android:layout_marginBottom="@dimen/margin_standard"
-        android:textColor="?attr/colorOnSurface"/>
-
-    <EditText
-        android:id="@+id/edtNome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_name"
-        android:inputType="textPersonName"
-        android:layout_marginBottom="@dimen/margin_small"/>
-
-    <EditText
-        android:id="@+id/edtCognome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_surname"
-        android:inputType="textPersonName"
-        android:layout_marginBottom="@dimen/margin_small"/>
-
-    <EditText
-        android:id="@+id/edtCF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_fiscal_code"
-        android:inputType="textCapWords"
-        android:maxLength="16"
-        android:layout_marginBottom="@dimen/margin_medium"/>
+        android:textColor="?android:attr/textColorPrimary"/>
 
     <LinearLayout
+        android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="end">
+        android:gravity="end"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="@dimen/margin_small">
 
         <Button
             android:id="@+id/btnAnnulla"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="?attr/colorSurface"
-            app:elevation="0dp"
             android:text="@string/btn_cancel"
-            android:textColor="?attr/colorError"/>
+            android:backgroundTint="?attr/colorError"
+            android:textColor="?attr/colorOnError"
+            style="?attr/borderlessButtonStyle"/>
 
         <Button
             android:id="@+id/btnSalva"
@@ -62,4 +41,45 @@
             android:text="@string/btn_save"
             android:layout_marginStart="@dimen/margin_tiny"/>
     </LinearLayout>
-</LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtTitle"
+        android:layout_above="@id/layoutButtons"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtNome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="@dimen/margin_small"/>
+
+            <EditText
+                android:id="@+id/edtCognome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_surname"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="@dimen/margin_small"/>
+
+            <EditText
+                android:id="@+id/edtCF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_fiscal_code"
+                android:inputType="textCapCharacters"
+                android:maxLength="16"
+                android:layout_marginBottom="@dimen/margin_medium"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

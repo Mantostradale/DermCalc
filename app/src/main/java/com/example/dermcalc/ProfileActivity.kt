@@ -16,8 +16,9 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val toolbar = findViewById<Toolbar>(R.id.profileToolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolBar)
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val txtCognome = findViewById<TextView>(R.id.txtCognome)
         val txtUsername = findViewById<TextView>(R.id.txtUsername)

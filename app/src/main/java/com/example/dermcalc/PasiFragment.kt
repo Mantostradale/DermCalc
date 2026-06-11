@@ -83,7 +83,6 @@ class PasiFragment : Fragment(R.layout.fragment_index_pasi) {
             val upperExempt = view.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.checkUpperExempt).isChecked
             val lowerExempt = view.findViewById<com.google.android.material.checkbox.MaterialCheckBox>(R.id.checkLowerExempt).isChecked
 
-            // Calcolo corretto usando il punteggio dell'area da 0 a 6
             val ptHead = calcolaDistretto(
                 view.findViewById(R.id.spinnerHeadErythema),
                 view.findViewById(R.id.spinnerHeadInduration),
@@ -230,10 +229,6 @@ class PasiFragment : Fragment(R.layout.fragment_index_pasi) {
         }
     }
 
-    /**
-     * Calcola il punteggio PASI per un singolo distretto anatomico.
-     * * Formula ufficiale: GradoArea (0-6) × (e + i + d) × pesoAnatomico
-     */
     private fun calcolaDistretto(
         spinEry: Spinner,
         spinInd: Spinner,
@@ -247,10 +242,7 @@ class PasiFragment : Fragment(R.layout.fragment_index_pasi) {
         val eritema = spinEry.selectedItemPosition
         val infiltrazione = spinInd.selectedItemPosition
         val desquamazione = spinDesq.selectedItemPosition
-
-        // CORRETTO: Adesso prende direttamente il valore intero (0-6) fornito dallo spinner
         val areaPunteggio = spinArea.selectedItemPosition
-
         val sommaSegni = eritema + infiltrazione + desquamazione
         return areaPunteggio * sommaSegni * pesoAnatomico
     }

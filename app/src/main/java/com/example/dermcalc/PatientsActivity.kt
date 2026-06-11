@@ -8,15 +8,17 @@ import androidx.navigation.fragment.NavHostFragment
 
 class PatientsActivity : AppCompatActivity() {
 
-    internal var idDottoreLoggato: Long = -1L
+    internal var idDottoreLoggato: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patients)
 
-        idDottoreLoggato = intent.getLongExtra("DOCTOR_ID", -1L)
+        if (intent.hasExtra("DOCTOR_ID")) {
+            idDottoreLoggato = intent.getLongExtra("DOCTOR_ID", 0L)
+        }
 
-        if (idDottoreLoggato == -1L) {
+        if (idDottoreLoggato == null) {
             Toast.makeText(this, "Errore sessione medico!", Toast.LENGTH_SHORT).show()
             finish()
             return
@@ -32,7 +34,7 @@ class PatientsActivity : AppCompatActivity() {
         grafico.setStartDestination(R.id.patientsFragment)
         navController.setGraph(grafico, intent.extras)
 
-        val toolbar = findViewById<Toolbar>(R.id.profileToolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolBar)
         toolbar.setNavigationOnClickListener {
             if (!navController.navigateUp()) {
                 finish()

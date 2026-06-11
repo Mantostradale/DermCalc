@@ -10,6 +10,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import com.example.dermcalc.data.local.database.AppDatabase
 import com.example.dermcalc.data.local.entity.Valutazione
@@ -39,6 +40,14 @@ class PatientStatsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_patients_stats)
 
+        val toolbar = findViewById<Toolbar>(R.id.toolBar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         val listViewPatientStats = findViewById<ListView>(R.id.listViewPatientsStats)
         val cardPatientSelector = findViewById<MaterialCardView>(R.id.cardPatientSelector)
         val spinnerPazienti = findViewById<Spinner>(R.id.spinnerPazientiNascosto)
@@ -66,18 +75,17 @@ class PatientStatsActivity : AppCompatActivity() {
             spinnerPazienti.performClick()
         }
 
-        // CREAZIONE ADAPTER LISTA REFERTI (Vuoto all'inizio)
         adapterReferti = object : ArrayAdapter<Valutazione>(
             this@PatientStatsActivity,
             R.layout.item_detail_report,
-            mutableListOf()
+            ArrayList<Valutazione>()
         ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val rowView = convertView ?: layoutInflater.inflate(R.layout.item_detail_report, parent, false)
                 val report = getItem(position)!!
 
                 rowView.findViewById<TextView>(R.id.txtSectionTitle).text =
-                    "Paziente ID: #${report.pazienteIdVisitato} | Tipo: ${report.tipologiaIndice}"
+                    "Tipo: ${report.tipologiaIndice}"
                 rowView.findViewById<TextView>(R.id.txtSectionBody).text =
                     "Punteggio: ${report.punteggioFinale}\nData: ${report.dataValutazione}"
 
@@ -103,7 +111,7 @@ class PatientStatsActivity : AppCompatActivity() {
         val adapterSpinner = ArrayAdapter<String>(
             this@PatientStatsActivity,
             R.layout.item_patient_stats_spinner,
-            mutableListOf()
+            ArrayList<String>()
         )
         spinnerPazienti.adapter = adapterSpinner
 

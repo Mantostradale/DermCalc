@@ -395,7 +395,7 @@
             android:layout_marginBottom="@dimen/card_margin_bottom_secondary"
             android:paddingTop="@dimen/padding_body"
             android:paddingBottom="@dimen/padding_body"
-            android:backgroundTint="?attr/colorSecondary"
+            android:backgroundTint="?attr/colorPrimary"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_file_save"
             app:iconPadding="@dimen/margin_small"

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
+
+    //light
     <color name="light_background">#FFF0F4F8</color>
     <color name="light_surface">#FFFFFFFF</color>
     <color name="light_primary">#FF1A3C5E</color>
@@ -18,19 +21,14 @@
     <color name="light_white_overlay_60">#99FFFFFF</color>
     <color name="light_error">#FFB00020</color>
 
-    <!-- Dark Theme -->
-    <color name="dark_background">#FF1A1C1E</color>
-    <color name="dark_surface">#FF1A1C1E</color>
-    <color name="dark_primary">#FFD0E4FF</color>
-    <color name="dark_on_primary">#003355</color>
-    <color name="dark_secondary">#FFBAC8DB</color>
-    <color name="dark_tertiary">#FFD6BEE4</color>
-    <color name="dark_outline">#FF8C9199</color>
-    <color name="dark_accent_blue">#FF3D91D6</color>
-    <color name="dark_accent_green">#FF2ECC8E</color>
-    <color name="dark_title">#FFE2E2E6</color>
-    <color name="dark_text">#FFC4C6CF</color>
-    <color name="dark_on_primary_muted">#80003355</color>
-    <color name="dark_white_overlay_12">#1FFFFFFF</color>
-    <color name="dark_white_overlay_60">#99FFFFFF</color>
+    //night
+    <color name="true_dark_background">#FF0A0C0E</color>
+    <color name="true_dark_surface">#FF161A1D</color>
+    <color name="true_dark_surface_blue">#FF102A45</color>
+    <color name="high_contrast_white">#FFFFFFFF</color>
+    <color name="high_contrast_gray">#FFE2E8F0</color>
+    <color name="dark_border_gray">#FF3A4454</color>
+    <color name="dark_button_gray">#FF2D3748</color>
+    <color name="dark_button_green">#FF00C853</color>
+
 </resources>

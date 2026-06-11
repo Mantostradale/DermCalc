@@ -58,7 +58,7 @@ class BSAFragment : Fragment(R.layout.fragment_index_bsa) {
 
         val db = AppDatabase.getDatabase(requireContext())
 
-        // Caricamento asincrono lista pazienti
+        // Caricamento lista pazienti
         lifecycleScope.launch {
             db.DermCalcDao().getPazientiDelResponsabile(idDottoreLoggato!!).collect { pazienti ->
                 listaPazientiOrdinata = pazienti
@@ -133,7 +133,6 @@ class BSAFragment : Fragment(R.layout.fragment_index_bsa) {
             lifecycleScope.launch {
                 val dataFormattata = java.text.SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault()).format(java.util.Date())
 
-                // 1. Inserimento della Valutazione generale
                 val nuovaValutazione = Valutazione(
                     valutazioneId = 0,
                     pazienteIdVisitato = paziente.pazienteId,
@@ -146,7 +145,6 @@ class BSAFragment : Fragment(R.layout.fragment_index_bsa) {
                 val idInserito = db.DermCalcDao().inserisciValutazione(nuovaValutazione)
 
                 if (idInserito > 0) {
-                    // 2. Inserimento delle metriche di dettaglio specifiche per il BSA (salvando i valori effettivi usati)
                     val datiBSA = DatiBSA(
                         valutazioneId = idInserito,
                         testaCollo = convertiIndiceAreaInPercentuale(spinnerBsaTesta.selectedItemPosition),
@@ -183,10 +181,6 @@ class BSAFragment : Fragment(R.layout.fragment_index_bsa) {
         }
     }
 
-    /**
-     * Converte la selezione dello spinner (0-6) nel valore percentuale medio della classe d'area,
-     * allineandosi con i parametri di ponderazione clinica usati nei sistemi di punteggio dermatologici.
-     */
     private fun convertiIndiceAreaInPercentuale(posizione: Int): Double {
         return when (posizione) {
             1 -> 5.0   // Classe 1: 1-9% -> valore medio stimato 5%
@@ -199,9 +193,6 @@ class BSAFragment : Fragment(R.layout.fragment_index_bsa) {
         }
     }
 
-    /**
-     * Restituisce la categoria clinica di gravità basata sul valore del BSA totale.
-     */
     private fun getBsaSeverityCategory(bsa: Double): String {
         return when {
             bsa == 0.0 -> "Sano"

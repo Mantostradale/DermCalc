@@ -21,10 +21,10 @@
             android:id="@+id/txtSectionTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorSecondaryContainer"
+            android:background="?attr/colorPrimary"
             android:padding="@dimen/margin_small"
             android:text="@string/placeholder_section_title"
-            android:textColor="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"
             android:textStyle="bold"
             android:textSize="@dimen/text_size_list_title"/>
 

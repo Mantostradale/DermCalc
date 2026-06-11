@@ -7,7 +7,7 @@
     android:background="?attr/colorSurface">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/profileToolbar"
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -15,24 +15,13 @@
         android:paddingTop="@dimen/toolbar_padding_vertical"
         android:paddingBottom="@dimen/toolbar_padding_vertical"
         app:navigationIcon="@drawable/ic_back_arrow"
-        app:navigationContentDescription="@string/nav_back_description">
-
-        <ImageView
-            android:id="@+id/accountCircle"
-            android:layout_width="@dimen/toolbar_account_icon_size"
-            android:layout_height="@dimen/toolbar_account_icon_size"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/toolbar_account_icon_margin_end"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="@dimen/toolbar_account_icon_padding"
-            android:src="@drawable/ic_account_circle"
-            app:tint="?attr/colorOnPrimary"/>
-    </androidx.appcompat.widget.Toolbar>
+        app:navigationContentDescription="@string/nav_back_description"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         app:defaultNavHost="true" />
 </LinearLayout>

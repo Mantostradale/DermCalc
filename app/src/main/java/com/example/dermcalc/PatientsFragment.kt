@@ -30,7 +30,6 @@ class PatientsFragment : Fragment(R.layout.fragment_patient) {
 
         val db = AppDatabase.getDatabase(requireContext())
 
-        // 1. Inizializzazione Adapter con il nuovo layout XML personalizzato
         val listaPazientiLocale = ArrayList<Paziente>()
         val adapter = object : ArrayAdapter<Paziente>(
             requireContext(),
@@ -56,20 +55,13 @@ class PatientsFragment : Fragment(R.layout.fragment_patient) {
 
                 return rowView
             }
-
-            // Blocca il click sul resto della riga
-            override fun isEnabled(position: Int): Boolean {
-                return false
-            }
         }
         listViewPatients.adapter = adapter
 
-        // 2. Navigazione al form di inserimento
         btnAddPatient.setOnClickListener {
             findNavController().navigate(R.id.action_patients_to_add_patient)
         }
 
-        // 3. Osservazione reattiva e dinamica della lista
         viewLifecycleOwner.lifecycleScope.launch {
             db.DermCalcDao().getPazientiDelResponsabile(idDottore).collect { nuovaLista ->
                 adapter.clear()

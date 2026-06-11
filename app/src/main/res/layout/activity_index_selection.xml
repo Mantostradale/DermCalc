@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
@@ -15,19 +16,7 @@
         android:paddingTop="@dimen/toolbar_padding_vertical"
         android:paddingBottom="@dimen/toolbar_padding_vertical"
         app:navigationIcon="@drawable/ic_back_arrow"
-        app:navigationContentDescription="@string/nav_back_description">
-
-        <ImageView
-            android:id="@+id/accountCircle"
-            android:layout_width="@dimen/toolbar_account_icon_size"
-            android:layout_height="@dimen/toolbar_account_icon_size"
-            android:layout_gravity="end"
-            android:layout_marginEnd="@dimen/toolbar_account_icon_margin_end"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="@dimen/toolbar_account_icon_padding"
-            android:src="@drawable/ic_account_circle"
-            app:tint="?attr/colorOnPrimary"/>
-    </androidx.appcompat.widget.Toolbar>
+        app:navigationContentDescription="@string/nav_back_description"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/navHostFragment"
@@ -37,112 +26,4 @@
         android:layout_weight="1"
         app:navGraph="@navigation/nav_graph"
         app:defaultNavHost="true"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/nav_bar_height"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:paddingStart="@dimen/nav_padding_horizontal"
-        android:paddingEnd="@dimen/nav_padding_horizontal"
-        android:elevation="@dimen/nav_bar_elevation">
-
-        <LinearLayout
-            android:id="@+id/btnHome"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-            <ImageView
-                android:layout_width="@dimen/icon_size_nav"
-                android:layout_height="@dimen/icon_size_nav"
-                android:src="@drawable/ic_home"
-                android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
-                app:tint="?attr/colorPrimary" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_home"
-                android:textSize="@dimen/text_size_nav_label"
-                android:textStyle="bold"
-                android:textColor="?attr/colorPrimary" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnPatients"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-            <ImageView
-                android:layout_width="@dimen/icon_size_nav"
-                android:layout_height="@dimen/icon_size_nav"
-                android:src="@drawable/ic_patients"
-                android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
-                app:tint="?attr/colorSecondary" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_patients"
-                android:textSize="@dimen/text_size_nav_label"
-                android:textColor="?attr/colorSecondary" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-            <ImageView
-                android:layout_width="@dimen/icon_size_nav"
-                android:layout_height="@dimen/icon_size_nav"
-                android:src="@drawable/ic_reports"
-                android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
-                app:tint="?attr/colorSecondary" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_reports"
-                android:textSize="@dimen/text_size_nav_label"
-                android:textColor="?attr/colorSecondary" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btnChangeTheme"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?attr/selectableItemBackground">
-            <ImageView
-                android:layout_width="@dimen/icon_size_nav"
-                android:layout_height="@dimen/icon_size_nav"
-                android:src="@drawable/ic_contrast"
-                android:layout_marginBottom="@dimen/icon_margin_bottom_nav"
-                app:tint="?attr/colorSecondary" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_change_theme"
-                android:textSize="@dimen/text_size_nav_label"
-                android:textColor="?attr/colorSecondary" />
-        </LinearLayout>
-    </LinearLayout>
-
 </LinearLayout>
