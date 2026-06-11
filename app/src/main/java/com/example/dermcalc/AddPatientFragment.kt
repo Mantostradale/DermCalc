@@ -17,7 +17,7 @@ class AddPatientFragment : Fragment(R.layout.fragment_add_patient) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 🚀 Recupero dinamico dall'activity senza passare per gli argomenti del NavGraph
+        // Recupero dinamico dall'activity senza passare per gli argomenti del NavGraph
         val activityGuscio = activity as? PatientsActivity
         val idDottore = activityGuscio?.idDottoreLoggato ?: -1L
 

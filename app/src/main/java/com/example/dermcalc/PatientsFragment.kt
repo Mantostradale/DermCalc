@@ -34,7 +34,7 @@ class PatientsFragment : Fragment(R.layout.fragment_patient) {
         val listaPazientiLocale = ArrayList<Paziente>()
         val adapter = object : ArrayAdapter<Paziente>(
             requireContext(),
-            R.layout.item_patient, // 👈 Usiamo il nuovo layout della riga appena creato
+            R.layout.item_patient,
             listaPazientiLocale
         ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -47,7 +47,6 @@ class PatientsFragment : Fragment(R.layout.fragment_patient) {
                 // Impostiamo i dati testuali nel layout della riga
                 txtDatiPaziente.text = "${paziente.nome} ${paziente.cognome}\nCF: ${paziente.codiceFiscale}"
 
-                // 🗑️ Il cestino dell'XML ora è direttamente cliccabile!
                 btnEliminaPaziente.setOnClickListener {
                     viewLifecycleOwner.lifecycleScope.launch {
                         db.DermCalcDao().rimuoviPaziente(paziente)

@@ -8,7 +8,6 @@ import androidx.navigation.fragment.NavHostFragment
 
 class PatientsActivity : AppCompatActivity() {
 
-    // ⚠️ CAMBIATO: Ora è accessibile dai Fragment contenuti in questa Activity
     internal var idDottoreLoggato: Long = -1L
 
     override fun onCreate(savedInstanceState: Bundle?) {
