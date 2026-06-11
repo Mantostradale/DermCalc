@@ -18,11 +18,15 @@
 
     <string-array name="area_scores">
         <item>0 - 0% (Nessuna presenza)</item>
-        <item>1 - 1-9%</item>
-        <item>2 - 10-29%</item>
-        <item>3 - 30-49%</item>
-        <item>4 - 50-69%</item>
-        <item>5 - 70-89%</item>
-        <item>6 - 90-100% (Totale)</item>
+        <item>1 - 25%</item>
+        <item>2 - 50%</item>
+        <item>3 - 75%</item>
+        <item>4 - 100% (Totale)</item>
     </string-array>
+
+    <string-array name="area_genitali_scores">
+        <item>0 - No (Nessuna presenza)</item>>
+        <item>1 - Si (Totale)</item>
+    </string-array>
+
 </resources>

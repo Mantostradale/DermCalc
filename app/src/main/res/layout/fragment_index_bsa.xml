@@ -164,7 +164,7 @@
 
                     <!-- Genitali -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_genitals" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaGenitali" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaGenitali" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_genitali_scores"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
