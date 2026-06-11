@@ -111,8 +111,10 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Per poter utilizzare gli strumenti, è necessario essere loggati.", Toast.LENGTH_LONG).show()
             } else {
                 val intent = Intent(this, PatientStatsActivity::class.java).apply {
-                    putExtra("DOCTOR_ID", loggedDoctorId)
-                    // NOTA: Passiamo 1L come ID di test fisso per evitare il crash di variabile inesistente
+
+                    // AGGIUNGI I DUE PUNTI ESCLAMATIVI QUI SOTTO
+                    putExtra("DOCTOR_ID", loggedDoctorId!!)
+
                     putExtra("PATIENT_ID", 1L)
                 }
                 startActivity(intent)

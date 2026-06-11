@@ -77,23 +77,44 @@ interface DermCalcDAO {
     @Query("DELETE FROM valutazione WHERE valutazioneId = :id")
     suspend fun cancellaValutazionePerId(id: Long)
 
+    // Query per le Statistiche
     // --- SEZIONE PASI ---
     @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'PASI' AND pazienteIdVisitato = :id")
     suspend fun getNumValutazioniPazientePASI(id: Long): Int
 
     @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'PASI' AND pazienteIdVisitato = :id ORDER BY dataValutazione ASC LIMIT 1")
-    suspend fun getPrimoValorePASI(id: Long): Float
+    suspend fun getPrimoValorePASI(id: Long): Double? // <- Aggiunto ?
 
     @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'PASI' AND pazienteIdVisitato = :id ORDER BY dataValutazione DESC LIMIT 1")
-    suspend fun getUltimoValorePASI(id: Long): Float
+    suspend fun getUltimoValorePASI(id: Long): Double? // <- Aggiunto ?
 
-    // --- SEZIONE EASI, BMI, BSA CORRETTE ---
+    // --- SEZIONE EASI ---
     @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'EASI' AND pazienteIdVisitato = :id")
     suspend fun getNumValutazioniPazienteEASI(id: Long): Int
 
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'EASI' AND pazienteIdVisitato = :id ORDER BY dataValutazione ASC LIMIT 1")
+    suspend fun getPrimoValoreEASI(id: Long): Double? // <- Aggiunto ?
+
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'EASI' AND pazienteIdVisitato = :id ORDER BY dataValutazione DESC LIMIT 1")
+    suspend fun getUltimoValoreEASI(id: Long): Double? // <- Aggiunto ?
+
+    // --- SEZIONE BMI ---
     @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'BMI' AND pazienteIdVisitato = :id")
     suspend fun getNumValutazioniPazienteBMI(id: Long): Int
 
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'BMI' AND pazienteIdVisitato = :id ORDER BY dataValutazione ASC LIMIT 1")
+    suspend fun getPrimoValoreBMI(id: Long): Double? // <- Aggiunto ?
+
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'BMI' AND pazienteIdVisitato = :id ORDER BY dataValutazione DESC LIMIT 1")
+    suspend fun getUltimoValoreBMI(id: Long): Double? // <- Aggiunto ?
+
+    // --- SEZIONE BSA ---
     @Query("SELECT COUNT(*) FROM valutazione WHERE tipologiaIndice = 'BSA' AND pazienteIdVisitato = :id")
     suspend fun getNumValutazioniPazienteBSA(id: Long): Int
+
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'BSA' AND pazienteIdVisitato = :id ORDER BY dataValutazione ASC LIMIT 1")
+    suspend fun getPrimoValoreBSA(id: Long): Double? // <- Aggiunto ?
+
+    @Query("SELECT punteggioFinale FROM valutazione WHERE tipologiaIndice = 'BSA' AND pazienteIdVisitato = :id ORDER BY dataValutazione DESC LIMIT 1")
+    suspend fun getUltimoValoreBSA(id: Long): Double? // <- Aggiunto ?
 }
