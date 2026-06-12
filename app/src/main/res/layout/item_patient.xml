@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/margin_standard">
 
     <TextView
@@ -21,8 +22,8 @@
         android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         android:padding="@dimen/margin_tiny"
-        android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/ic_delete"
+        app:tint="?attr/colorError"
         android:contentDescription="@string/desc_delete_patient"
         android:focusable="false"
         android:clickable="true" />
