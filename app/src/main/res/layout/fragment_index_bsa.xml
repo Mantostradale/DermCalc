@@ -136,31 +136,31 @@
 
                     <!-- Testa e Collo -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_head_neck" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaTesta" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaTesta" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Arto Superiore Destro -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_arm_right" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoSupDx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoSupDx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Arto Superiore Sinistro -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_arm_left" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoSupSx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoSupSx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Tronco Anteriore -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_trunk_ant" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaTroncoAnt" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaTroncoAnt" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Tronco Posteriore -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_trunk_post" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaTroncoPost" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaTroncoPost" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Arto Inferiore Destro -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_leg_right" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoInfDx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoInfDx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Arto Inferiore Sinistro -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_leg_left" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
-                    <Spinner android:id="@+id/spinnerBsaArtoInfSx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/area_scores"/>
+                    <Spinner android:id="@+id/spinnerBsaArtoInfSx" android:layout_width="match_parent" android:layout_height="@dimen/spinner_height" android:layout_marginBottom="@dimen/margin_small" android:background="@drawable/spinner_rounded_item" android:entries="@array/bsa_scores"/>
 
                     <!-- Genitali -->
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bsa_param_genitals" android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="@dimen/margin_tiny_vertical"/>
